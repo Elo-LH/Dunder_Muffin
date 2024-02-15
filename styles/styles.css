@@ -31,6 +31,7 @@ nav a{
         flex-direction: column;
         font-size: 24px;
     }
+}
 footer {
     background-color: white;
     position: absolute;
