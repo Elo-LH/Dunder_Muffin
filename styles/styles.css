@@ -18,7 +18,7 @@ header{
     height: 105px;
 }
 nav a{
-    font-family: rubik;
+    font-family: "Rubik", sans-serif;
     font-size:32px;
     font-weight: bold;
     color: #000;
@@ -31,6 +31,7 @@ nav a{
         flex-direction: column;
         font-size: 24px;
     }
+}
 footer {
     background-color: white;
     position: absolute;
