@@ -15,7 +15,7 @@ footer {
     box-sizing: border-box;
     padding: 0 20px;
     font-family: "Rubik", sans-serif;
-    font-size: 2vw;
+    font-size: 2vmin;
 }
 footer div {
     display: flex;
