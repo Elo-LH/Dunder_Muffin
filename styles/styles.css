@@ -10,7 +10,19 @@ html, body{
     height: 70%;
     background-image: url("../images/texture.jpg");
     background-size: cover;
+    padding: 40px 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 .home p{
     font-family:"Fira Code", monospace;
+    font-size: 64px;
+    width: 70%;
+}
+@media screen and (max-width:900px){
+    .home p{
+        font-size:48px;
+        width: 90%;
+    }
 }
