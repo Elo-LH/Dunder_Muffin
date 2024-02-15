@@ -18,11 +18,18 @@ header{
     width:160px;
     height: 105px;
 }
-nav > a{
+nav a{
     font-family: rubik;
     font-size:32px;
     font-weight: bold;
     color: #000;
     text-decoration: none;
     margin-left: 75px;
+}
+@media screen and (max-width:900px){
+    nav a{
+        display: flex;
+        flex-direction: column;
+        font-size: 24px;
+    }
 }
