@@ -59,12 +59,17 @@ nav a{
     background-size: cover;
     font-family: 'Fira Code', monospace;
 }
-.menu h2 {
+.menu h2, h1 {
     font-weight: 400;
+}
+.menu h1 {
+    margin: 0 auto;
+    padding-top: 40px;
+    text-align: center;
 }
 .card-wrapper{
     margin: 0 auto;
-
+    padding: 40px 20px;
     display: flex;
     flex-wrap: wrap;
     gap: 40px;
@@ -75,13 +80,13 @@ nav a{
     height: 350px;
     display: flex;
     flex-direction: column;
-    justify-content: center;
-    vertical-align: middle;
+    text-align: center;
     background-color: #FDFF8A;
     box-shadow: 4px 8px 4px #00000040;
 }
 .recipe-card img {
     width: 50%;
+    align-self: center;
 }
 footer {
     background-color: white;
