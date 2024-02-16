@@ -74,6 +74,16 @@ nav a{
     font-size: 1rem;
     margin: 0;
 }
+@media screen and (max-width:900px){
+    .contact{
+        align-items: center;
+        padding: 0;
+        text-align: right;
+    }
+    .contact img{
+        width: 300px;
+    }
+}
 footer {
     background-color: white;
     position: absolute;
