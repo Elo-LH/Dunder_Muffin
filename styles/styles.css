@@ -129,11 +129,12 @@ footer {
     left: 0;
     width: 100%;
     display: flex;
+    flex-wrap: wrap;
     justify-content: space-between;
     box-sizing: border-box;
     padding: 0 20px;
     font-family: "Rubik", sans-serif;
-    font-size: 2vmin;
+    font-size: max(15px, 2vmin);
 }
 footer div {
     display: flex;
@@ -142,6 +143,7 @@ footer div {
 }
 .footer-contact{
     padding: 10px;
+    min-width: 200px;
 }
 footer p {
     margin: 0;
