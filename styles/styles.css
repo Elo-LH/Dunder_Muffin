@@ -1,3 +1,5 @@
+/* ----------------- Global style ----------------- */
+
 html,
 body {
   margin: 0;
@@ -8,6 +10,9 @@ body {
   min-height: 100vh;
   flex-direction: column;
 }
+
+/* ----------------- Header ----------------- */
+
 header {
   width: 80%;
   margin: 15px auto 20px auto;
@@ -35,6 +40,9 @@ nav a {
     margin-left: 40px;
   }
 }
+
+/* ----------------- Home page ----------------- */
+
 .home {
   flex: 1;
   background-image: url('../images/texture.jpg');
@@ -55,6 +63,9 @@ nav a {
     width: 90%;
   }
 }
+
+/* ----------------- Menu page ----------------- */
+
 .menu {
   flex: 1;
   background-image: url('../images/texture.jpg');
@@ -77,6 +88,8 @@ h1 {
   flex-wrap: wrap;
   gap: 40px;
 }
+
+/* Recipes cards */
 .recipe-card {
   padding: 20px;
   width: 350px;
@@ -91,11 +104,14 @@ h1 {
   width: 50%;
   align-self: center;
 }
+
+/* ----------------- Contact Page ----------------- */
+
 .contact {
   flex: 1;
   background-image: url('../images/texture.jpg');
   background-size: cover;
-  padding: 0 40%;
+  padding: 40px 40%;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -119,6 +135,9 @@ h1 {
     width: 300px;
   }
 }
+
+/* ----------------- Footer ----------------- */
+
 footer {
   background-color: white;
   bottom: 0;
