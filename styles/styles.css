@@ -104,6 +104,18 @@ h1 {
   width: 50%;
   align-self: center;
 }
+/* .recipe-card:nth-of-type(1) {
+  transform: rotate(-7deg);
+}
+.recipe-card:nth-of-type(2) {
+  transform: rotate(7deg);
+}
+.recipe-card:nth-of-type(3) {
+  transform: rotate(3deg);
+}
+.recipe-card:nth-of-type(4) {
+  transform: rotate(-7deg);
+} */
 
 /* ----------------- Contact Page ----------------- */
 
