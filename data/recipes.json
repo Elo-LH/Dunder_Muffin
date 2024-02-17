@@ -29,7 +29,7 @@
     {
         "id": 4,
         "name": "Stanley's Sacred Pretzel",
-        "description": "Pretzel dough sprinkled with either salt or sugar",
+        "description": "Pretzel dough sprinkled with either salt or sugar.",
         "price": 3.90,
         "vegetarian": true,
         "vegan": true,

@@ -28,7 +28,11 @@ function generateCards(recipes) {
     recipeName.innerText = recipe.name
     const recipeDescription = document.createElement('p')
     recipeDescription.innerText = recipe.description
-
+    recipeDescription.innerText += recipe.vegan
+      ? ' (🌱Vegan)'
+      : recipe.vegetarian
+      ? ' (🥛Vegetarian)'
+      : ''
     cardWrapper.appendChild(recipeCard)
     recipeCard.appendChild(recipePicture)
     recipeCard.appendChild(recipeName)
