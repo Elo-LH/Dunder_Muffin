@@ -6,7 +6,7 @@
         "price": 8.90,
         "vegetarian": false,
         "vegan": false,
-        "picture": "images/default--recipe-picture.jpg"
+        "picture": "./images/default-recipe-picture.jpg"
     },
     {
         "id": 2,
@@ -15,7 +15,7 @@
         "price": 9.90,
         "vegetarian": false,
         "vegan": false,
-        "picture": "images/default--recipe-picture.jpg"
+        "picture": "./images/dwight-picture.jpg"
     },
     {
         "id": 3,
@@ -24,7 +24,7 @@
         "price": 4.90,
         "vegetarian": true,
         "vegan": false,
-        "picture": "images/default--recipe-picture.jpg"
+        "picture": "./images/pam-picture.png"
     },
     {
         "id": 4,
@@ -33,6 +33,6 @@
         "price": 3.90,
         "vegetarian": true,
         "vegan": true,
-        "picture": "images/default--recipe-picture.jpg"
+        "picture": "./images/stanley-picture.png"
     }
 ]
