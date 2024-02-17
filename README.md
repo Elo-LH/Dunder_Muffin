@@ -18,7 +18,7 @@ Restaurant website inspired by <a href='https://en.wikipedia.org/wiki/The_Office
 
 ### Let's see what's on the menu :
 
-![menu](https://github.com/Elo-LH/Dunder_Muffin/assets/131976796/6f93b24f-1744-40dc-9c41-19f191350577)
+![menu](https://github.com/Elo-LH/Dunder_Muffin/assets/131976796/c74ff9cf-1cf2-4aa0-a56b-404b22c4ee29)
 
 ## Currently working on : 🚧
 

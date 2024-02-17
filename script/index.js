@@ -1,3 +1,9 @@
+// Récupération des pièces depuis le fichier JSON
+const reponse = await fetch('./data/recipes.json')
+const recipes = await reponse.json()
+
+console.log(recipes)
+
 function rotateCard() {
   //Rotate the recipe-card elements by random angle between -7deg and 7deg
   var cards = document.querySelectorAll('.recipe-card')
@@ -8,4 +14,31 @@ function rotateCard() {
     card.style.transform = text
   }
 }
+
+function generateCards(recipes) {
+  console.log('Entered generate cards')
+  const cardWrapper = document.querySelector('.card-wrapper')
+
+  for (let recipe of recipes) {
+    const recipeCard = document.createElement('div')
+    recipeCard.setAttribute('class', 'recipe-card')
+    const recipePicture = document.createElement('img')
+    recipePicture.src = recipe.picture
+    const recipeName = document.createElement('h2')
+    recipeName.innerText = recipe.name
+    const recipeDescription = document.createElement('p')
+    recipeDescription.innerText = recipe.description
+    recipeDescription.innerText += recipe.vegan
+      ? ' (🌱Vegan)'
+      : recipe.vegetarian
+      ? ' (🥛Vegetarian)'
+      : ''
+    cardWrapper.appendChild(recipeCard)
+    recipeCard.appendChild(recipePicture)
+    recipeCard.appendChild(recipeName)
+    recipeCard.appendChild(recipeDescription)
+  }
+}
+
+generateCards(recipes)
 rotateCard()
