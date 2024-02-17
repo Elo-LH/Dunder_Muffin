@@ -1,0 +1,38 @@
+[
+    {
+        "id": 1,
+        "name": "Kevin's Famous Chili",
+        "description": "Beef, red beans, corn, tomato sauce, carots and its slight carpet-flavored seasoning.",
+        "price": 8.90,
+        "vegetarian": false,
+        "vegan": false,
+        "picture": "images/default--recipe-picture.jpg"
+    },
+    {
+        "id": 2,
+        "name": "Dwight's Grilled Boar with Beets",
+        "description": "Wild boar, beets (from Schrute farm), potatoes, aromatic herbs.",
+        "price": 9.90,
+        "vegetarian": false,
+        "vegan": false,
+        "picture": "images/default--recipe-picture.jpg"
+    },
+    {
+        "id": 3,
+        "name": "Pam's Chocolate Cream Pie",
+        "description": "Chocolate custard, whipped cream and biscuit base.",
+        "price": 4.90,
+        "vegetarian": true,
+        "vegan": false,
+        "picture": "images/default--recipe-picture.jpg"
+    },
+    {
+        "id": 4,
+        "name": "Stanley's Sacred Pretzel",
+        "description": "Pretzel dough sprinkled with either salt or sugar",
+        "price": 3.90,
+        "vegetarian": true,
+        "vegan": true,
+        "picture": "images/default--recipe-picture.jpg"
+    }
+]
