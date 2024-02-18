@@ -39,7 +39,7 @@ function generateCards(recipes) {
 
     const recipeLink = document.createElement('a')
     recipeLink.innerText = 'See details ->'
-    recipeLink.href = './recipe.html?id=1'
+    recipeLink.href = `./recipe.html?id=${recipe.id}`
 
     cardWrapper.appendChild(recipeCard)
     recipeCard.appendChild(recipePicture)
@@ -57,7 +57,7 @@ function generateRecipeDetails(id) {
   const recipeDetails = document.createElement('div')
   const recipePicture = document.createElement('img')
   recipePicture.src = recipe.picture
-  const recipeName = document.createElement('h2')
+  const recipeName = document.createElement('h1')
   recipeName.innerText = recipe.name
   const recipeDescription = document.createElement('p')
   recipeDescription.innerText = recipe.description
@@ -66,15 +66,17 @@ function generateRecipeDetails(id) {
     : recipe.vegetarian
     ? ' (🥛Vegetarian)'
     : ''
-
+  const recipePrice = document.createElement('p')
+  recipePrice.innerText = recipe.price
   const recipeLink = document.createElement('a')
   recipeLink.innerText = 'Back to menu'
   recipeLink.href = './menu.html'
 
   recipeWrapper.appendChild(recipeDetails)
-  recipeDetails.appendChild(recipePicture)
   recipeDetails.appendChild(recipeName)
+  recipeDetails.appendChild(recipePicture)
   recipeDetails.appendChild(recipeDescription)
+  recipeDetails.appendChild(recipePrice)
   recipeDetails.appendChild(recipeLink)
 }
 
