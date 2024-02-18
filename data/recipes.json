@@ -3,7 +3,7 @@
         "id": 1,
         "name": "Kevin's Famous Chili",
         "description": "Beef, red beans, corn, tomato sauce, carots and its slight carpet-flavored seasoning.",
-        "price": 8.90,
+        "price": 10.90,
         "vegetarian": false,
         "vegan": false,
         "picture": "./images/default-recipe-picture.jpg"
@@ -12,7 +12,7 @@
         "id": 2,
         "name": "Dwight's Grilled Boar with Beets",
         "description": "Wild boar, beets (from Schrute farm), potatoes, aromatic herbs.",
-        "price": 9.90,
+        "price": 13.90,
         "vegetarian": false,
         "vegan": false,
         "picture": "./images/dwight-picture.jpg"
@@ -34,5 +34,41 @@
         "vegetarian": true,
         "vegan": true,
         "picture": "./images/stanley-picture.png"
+    },
+    {
+        "id": 5,
+        "name": "Pepperoni Pizza, Alfredo's Style",
+        "description": "Pizza dough, tomato sauce, pepperoni, mozzarella, oregano.",
+        "price": 9.90,
+        "vegetarian": false,
+        "vegan": false,
+        "picture": "./images/alfredo-pizza.jpg"
+    },
+    {
+        "id": 6,
+        "name": "Angela's Double Fudge Brownies",
+        "description": "Chocolate, butter, vanilla and walnuts.",
+        "price": 3.90,
+        "vegetarian": true,
+        "vegan": false,
+        "picture": "./images/angela-brownies.jpg"
+    },
+    {
+        "id": 7,
+        "name": "Creed's Peach Cobbler",
+        "description": "Peach, cobbler batter, cinnamon.",
+        "price": 4.90,
+        "vegetarian": true,
+        "vegan": false,
+        "picture": ""
+    },
+    {
+        "id": 8,
+        "name": "Kelly's Diwali Samosas",
+        "description": "Sweet potato, green peas, olive oil, onion, garlic and spices.",
+        "price": 8.90,
+        "vegetarian": true,
+        "vegan": true,
+        "picture": ""
     }
 ]

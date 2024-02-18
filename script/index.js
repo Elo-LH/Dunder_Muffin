@@ -1,6 +1,8 @@
 // Récupération des pièces depuis le fichier JSON
 const reponse = await fetch('./data/recipes.json')
 const recipes = await reponse.json()
+const id = window.location.search.slice(4)
+console.log(id)
 
 console.log(recipes)
 
@@ -22,23 +24,65 @@ function generateCards(recipes) {
   for (let recipe of recipes) {
     const recipeCard = document.createElement('div')
     recipeCard.setAttribute('class', 'recipe-card')
+    recipeCard.setAttribute('id', `id=${recipe.id}`)
     const recipePicture = document.createElement('img')
-    recipePicture.src = recipe.picture
+    // if no link to recipe picture, affect default
+    recipe.picture == ''
+      ? (recipePicture.src = './images/default-recipe-picture.jpg')
+      : (recipePicture.src = recipe.picture)
     const recipeName = document.createElement('h2')
     recipeName.innerText = recipe.name
     const recipeDescription = document.createElement('p')
     recipeDescription.innerText = recipe.description
+    // adding veggie badges to recipe description
     recipeDescription.innerText += recipe.vegan
       ? ' (🌱Vegan)'
       : recipe.vegetarian
       ? ' (🥛Vegetarian)'
       : ''
+
+    const recipeLink = document.createElement('a')
+    recipeLink.innerText = 'See details ->'
+    recipeLink.href = `./recipe.html?id=${recipe.id}`
+
     cardWrapper.appendChild(recipeCard)
     recipeCard.appendChild(recipePicture)
     recipeCard.appendChild(recipeName)
     recipeCard.appendChild(recipeDescription)
+    recipeCard.appendChild(recipeLink)
   }
 }
 
-generateCards(recipes)
+function generateRecipeDetails(id) {
+  console.log('generateRecipeDetails entered')
+  const recipeWrapper = document.querySelector('.recipe-wrapper')
+  const recipe = recipes[id - 1]
+  console.log(recipe)
+  const recipeDetails = document.createElement('div')
+  const recipePicture = document.createElement('img')
+  recipePicture.src = recipe.picture
+  const recipeName = document.createElement('h1')
+  recipeName.innerText = recipe.name
+  const recipeDescription = document.createElement('p')
+  recipeDescription.innerText = recipe.description
+  recipeDescription.innerText += recipe.vegan
+    ? ' (🌱Vegan)'
+    : recipe.vegetarian
+    ? ' (🥛Vegetarian)'
+    : ''
+  const recipePrice = document.createElement('p')
+  recipePrice.innerText = recipe.price
+  const recipeLink = document.createElement('a')
+  recipeLink.innerText = 'Back to menu'
+  recipeLink.href = './menu.html'
+
+  recipeWrapper.appendChild(recipeDetails)
+  recipeDetails.appendChild(recipeName)
+  recipeDetails.appendChild(recipePicture)
+  recipeDetails.appendChild(recipeDescription)
+  recipeDetails.appendChild(recipePrice)
+  recipeDetails.appendChild(recipeLink)
+}
+
 rotateCard()
+id ? generateRecipeDetails(id) : generateCards(recipes)

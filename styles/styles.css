@@ -106,6 +106,15 @@ h1 {
   align-self: center;
 }
 
+/* Recipe details */
+.recipe-wrapper {
+  display: flex;
+  flex-direction: column;
+}
+.recipe-wrapper img {
+  width: 50%;
+}
+
 /* ----------------- Contact Page ----------------- */
 
 .contact {
