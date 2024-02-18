@@ -89,6 +89,5 @@ function generateRecipeDetails(id) {
   recipeDetails.appendChild(recipeLink)
 }
 
-generateCards(recipes)
-rotateCard()
 id ? generateRecipeDetails(id) : generateCards(recipes)
+rotateCard()
