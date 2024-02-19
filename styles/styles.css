@@ -75,12 +75,15 @@ nav a {
   background-image: url('../images/texture.jpg');
   background-size: cover;
   font-family: 'Fira Code', monospace;
+  padding-bottom: 100px;
 }
 
 .menu h1 {
   margin: 0 auto;
-  padding-top: 40px;
+  padding:100px 0 60px 0;
   text-align: center;
+  font-size: 2.5rem;
+  font-weight: bold;
 }
 .card-wrapper {
   margin: 0 auto;
@@ -98,22 +101,62 @@ nav a {
   height: 350px;
   display: flex;
   flex-direction: column;
+  justify-content: space-between;
   text-align: center;
   background-color: #fdff8a;
   box-shadow: 4px 8px 4px #00000040;
+  margin:10px 0;
 }
 .recipe-card img {
   width: 50%;
   align-self: center;
 }
 
+.recipe-card h2{
+  margin:0;
+  padding-bottom: 10px;
+  font-family: 'Rubik', sans-serif;
+  font-weight: bold;
+}
+
+.recipe-card p{
+  margin: 0;
+}
+
+.recipe-card a{
+  position: relative;
+  font-family: 'Fira Code', monospace;
+  text-decoration: none;
+  color: #000;
+  font-size: 0.8rem;
+}
+
+#id-3, #id-6, #id-7{
+  background-color: #cd82fc;
+}
+
+#id-4, #id-8{
+  background-color: #5eacf5;
+}
 /* Recipe details */
 .recipe-wrapper {
   display: flex;
   flex-direction: column;
 }
+.recipe-wrapper h1{
+  padding:75px 0;
+}
 .recipe-wrapper img {
-  width: 50%;
+  width: 90%;
+}
+.recipe-wrapper div{
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-template-rows: repeat(3, 1fr);
+  margin: 0 150px;
+}
+.recipe-wrapper div img{
+  grid-row: 1/span3;
 }
 
 /* ----------------- Contact Page ----------------- */
