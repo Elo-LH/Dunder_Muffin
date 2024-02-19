@@ -43,7 +43,7 @@ function generateCards(recipes) {
   for (let recipe of recipes) {
     const recipeCard = document.createElement('div')
     recipeCard.setAttribute('class', 'recipe-card')
-    recipeCard.setAttribute('id', `id=${recipe.id}`)
+    recipeCard.setAttribute('id', `id-${recipe.id}`)
     const recipePicture = document.createElement('img')
     // if no link to recipe picture, affect default
     recipe.picture == ''
@@ -75,11 +75,11 @@ function generateRecipeDetails(id) {
   const recipeWrapper = document.querySelector('.recipe-wrapper')
   const recipe = recipes[id - 1]
   console.log(recipe)
+  const recipeName = document.createElement('h1')
+  recipeName.innerText = recipe.name
   const recipeDetails = document.createElement('div')
   const recipePicture = document.createElement('img')
   recipePicture.src = recipe.picture
-  const recipeName = document.createElement('h1')
-  recipeName.innerText = recipe.name
   const recipeDescription = document.createElement('p')
   recipeDescription.innerText = recipe.description
   recipeDescription.innerText += recipe.vegan
@@ -93,8 +93,8 @@ function generateRecipeDetails(id) {
   recipeLink.innerText = 'Back to menu'
   recipeLink.href = './menu.html'
 
+  recipeWrapper.appendChild(recipeName)
   recipeWrapper.appendChild(recipeDetails)
-  recipeDetails.appendChild(recipeName)
   recipeDetails.appendChild(recipePicture)
   recipeDetails.appendChild(recipeDescription)
   recipeDetails.appendChild(recipePrice)
