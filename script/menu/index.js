@@ -54,6 +54,14 @@ function filterRecipes() {
   filter = select.value
   console.log(recipes)
   generateCards(recipes, filter)
+  let selectedOption = select.selectedIndex
+  if (selectedOption == 0) {
+    select.className = 'yellow-option'
+  } else if (selectedOption == 1) {
+    select.className = 'purple-option'
+  } else {
+    select.className = 'blue-option'
+  }
 }
 
 filterRecipes()
