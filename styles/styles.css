@@ -124,19 +124,33 @@ nav a {
 }
 
 .recipe-card a{
-  position: relative;
   font-family: 'Fira Code', monospace;
+  padding: 5px;
   text-decoration: none;
   color: #000;
   font-size: 0.8rem;
+  background-color: #5eacf593;
+  width: fit-content;
+  margin: auto;
+  border-radius: 80% 20% 72% 28% / 20% 63% 37% 80% ;
 }
 
 #id-3, #id-6, #id-7{
   background-color: #cd82fc;
 }
 
+#id-3 a, #id-6 a, #id-7 a{
+  background-color: #fdff8a9d;
+  border-radius: 80% 20% 81% 19% / 20% 25% 75% 80% ;
+}
+
 #id-4, #id-8{
   background-color: #5eacf5;
+}
+
+#id-4 a, #id-8 a{
+  background-color: #cd82fca6;
+  border-radius: 80% 20% 81% 19% / 9% 87% 13% 91% ;
 }
 /* Recipe details */
 .recipe-wrapper {
@@ -162,6 +176,14 @@ nav a {
 .recipe-wrapper p{
   padding: 0;
   margin: 0;
+}
+.recipe-wrapper a{
+  font-family: 'Fira Code', monospace;
+  text-decoration: none;
+  color: #000;
+  background-color: #fdff8a;
+  width: fit-content;
+  height: fit-content;
 }
 
 /* ----------------- Contact Page ----------------- */
