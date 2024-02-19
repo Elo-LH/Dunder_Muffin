@@ -147,11 +147,11 @@ nav a {
   padding:75px 0;
 }
 .recipe-wrapper img {
-  width: 50%;
+  width: 90%;
 }
 .recipe-wrapper div{
   display: grid;
-  grid-template-columns: 2fr 1fr;
+  grid-template-columns: repeat(2, 1fr);
   grid-template-rows: repeat(3, 1fr);
   margin: 0 150px;
 }
