@@ -75,12 +75,12 @@ nav a {
   background-image: url('../images/texture.jpg');
   background-size: cover;
   font-family: 'Fira Code', monospace;
-  padding-bottom: 100px;
+  padding: 100px 0;
 }
 
 .menu h1 {
   margin: 0 auto;
-  padding:100px 0 60px 0;
+  padding-bottom:60px;
   text-align: center;
   font-size: 2.5rem;
   font-weight: bold;
@@ -143,20 +143,25 @@ nav a {
   display: flex;
   flex-direction: column;
 }
-.recipe-wrapper h1{
-  padding:75px 0;
-}
-.recipe-wrapper img {
-  width: 90%;
-}
 .recipe-wrapper div{
   display: grid;
   grid-template-columns: repeat(2, 1fr);
-  grid-template-rows: repeat(3, 1fr);
+  grid-template-rows: repeat(4, 1fr);
   margin: 0 150px;
+  gap:20px;
 }
-.recipe-wrapper div img{
-  grid-row: 1/span3;
+.recipe-wrapper h1{
+  grid-column-start: 2;
+  padding: 0;
+}
+.recipe-wrapper img {
+  width: 50%;
+  justify-self: end;
+  grid-row: 1/span4;
+}
+.recipe-wrapper p{
+  padding: 0;
+  margin: 0;
 }
 
 /* ----------------- Contact Page ----------------- */

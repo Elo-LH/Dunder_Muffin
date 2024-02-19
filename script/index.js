@@ -81,8 +81,8 @@ function generateRecipeDetails(id) {
   recipeLink.innerText = 'Back to menu'
   recipeLink.href = './menu.html'
 
-  recipeWrapper.appendChild(recipeName)
   recipeWrapper.appendChild(recipeDetails)
+  recipeDetails.appendChild(recipeName)
   recipeDetails.appendChild(recipePicture)
   recipeDetails.appendChild(recipeDescription)
   recipeDetails.appendChild(recipePrice)
