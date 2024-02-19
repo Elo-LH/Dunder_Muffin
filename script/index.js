@@ -51,10 +51,10 @@ function generateCards(recipes) {
       : (recipePicture.src = recipe.picture)
     const recipeName = document.createElement('h2')
     recipeName.innerText = recipe.name
-    const recipeDescription = document.createElement('p')
-    recipeDescription.innerText = recipe.description
+    const recipeType = document.createElement('p')
+    recipeType.innerText = recipe.type
     // adding veggie badges to recipe description
-    recipeDescription.innerText += recipe.vegan
+    recipeType.innerText += recipe.vegan
       ? '(🌱Vegan)'
       : recipe.vegetarian
       ? '(🐥Vegetarian)'
@@ -66,7 +66,7 @@ function generateCards(recipes) {
     cardWrapper.appendChild(recipeCard)
     recipeCard.appendChild(recipePicture)
     recipeCard.appendChild(recipeName)
-    recipeCard.appendChild(recipeDescription)
+    recipeCard.appendChild(recipeType)
     recipeCard.appendChild(recipeLink)
   }
 }
