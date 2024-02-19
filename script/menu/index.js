@@ -2,10 +2,12 @@ const reponse = await fetch('./data/recipes.json')
 const recipes = await reponse.json()
 let filter = 'all'
 let filteredRecipes = []
+const select = document.querySelector('select')
+select.addEventListener('change', filterRecipes)
 
 function generateCards(recipes, filter) {
   console.log('Entered generate cards')
-  const cardWrapper = document.querySelector('.card-wrapper')
+  let cardWrapper = document.querySelector('.card-wrapper')
   if (filter == 'vegetarian') {
     filteredRecipes = recipes.filter((recipe) => recipe.vegetarian == true)
   } else if (filter == 'vegan') {
@@ -46,14 +48,12 @@ function generateCards(recipes, filter) {
 
 function filterRecipes() {
   console.log('Entered filterRecipes')
-  const select = document.querySelector('select')
+  let cardWrapper = document.querySelector('.card-wrapper')
+  cardWrapper.innerHTML = ''
+  let select = document.querySelector('select')
   filter = select.value
   console.log(recipes)
   generateCards(recipes, filter)
-}
-
-function test() {
-  alert('yes')
 }
 
 filterRecipes()
