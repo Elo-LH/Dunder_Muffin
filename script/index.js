@@ -3,6 +3,7 @@ const reponse = await fetch('./data/recipes.json')
 const recipes = await reponse.json()
 const id = window.location.search.slice(4)
 console.log(id)
+const regexNumber = new RegExp('^[0-9]$')
 
 console.log(recipes)
 
@@ -100,5 +101,5 @@ function generateRecipeDetails(id) {
   recipeDetails.appendChild(recipeLink)
 }
 
-id ? generateRecipeDetails(id) : generateCards(recipes)
+regexNumber.test(id) ? generateRecipeDetails(id) : generateCards(recipes)
 rotateCard()
