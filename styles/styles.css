@@ -1,5 +1,4 @@
 /* ----------------- Global style ----------------- */
-
 html,
 body {
   margin: 0;
@@ -9,6 +8,7 @@ body {
   display: flex;
   min-height: 100vh;
   flex-direction: column;
+  scrollbar-width: thin;
 }
 h2,
 h1 {
