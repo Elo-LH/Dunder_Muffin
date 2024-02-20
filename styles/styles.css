@@ -9,7 +9,9 @@ body {
   min-height: 100vh;
   flex-direction: column;
   scrollbar-width: thin;
+  overflow-x:hidden;
 }
+
 h2,
 h1 {
   font-weight: 400;
@@ -23,6 +25,7 @@ header {
   display: flex;
   justify-content: space-between;
   align-items: end;
+  background: red;
 }
 .logo {
   width: 160px;
