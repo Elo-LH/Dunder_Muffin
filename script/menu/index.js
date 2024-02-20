@@ -8,6 +8,7 @@ select.addEventListener('change', filterRecipes)
 function generateCards(recipes, filter) {
   console.log('Entered generate cards')
   let cardWrapper = document.querySelector('.card-wrapper')
+  //Filter recipe by selected option
   if (filter == 'vegetarian') {
     filteredRecipes = recipes.filter((recipe) => recipe.vegetarian == true)
   } else if (filter == 'vegan') {
@@ -15,12 +16,13 @@ function generateCards(recipes, filter) {
   } else {
     filteredRecipes = recipes
   }
+  //Generate cards
   for (let recipe of filteredRecipes) {
     const recipeCard = document.createElement('div')
     recipeCard.setAttribute('class', 'recipe-card')
     recipeCard.setAttribute('id', `id-${recipe.id}`)
     const recipePicture = document.createElement('img')
-    // if no link to recipe picture, affect default
+    //If no link to recipe picture, affect default
     recipe.picture == ''
       ? (recipePicture.src = './images/default-recipe-picture.jpg')
       : (recipePicture.src = recipe.picture)
@@ -34,10 +36,21 @@ function generateCards(recipes, filter) {
       : recipe.vegetarian
       ? '(🐥Vegetarian)'
       : ''
-
+    //Link to detailed recipe page
     const recipeLink = document.createElement('a')
     recipeLink.innerText = 'See details ->'
     recipeLink.href = `./recipe.html?id=${recipe.id}`
+    //Change bakcground and link color by veggie type
+    if (recipe.vegan) {
+      recipeLink.style.backgroundColor = '#cd82fca6'
+      recipeLink.style.borderRadius = '80% 20% 81% 19% / 9% 87% 13% 91%'
+      recipeCard.style.backgroundColor = '#5eacf5'
+    } else if (recipe.vegetarian) {
+      recipeLink.style.backgroundColor = '#fdff8a9d'
+      recipeLink.style.borderRadius = '80% 20% 81% 19% / 20% 25% 75% 80%'
+      recipeCard.style.backgroundColor = '#cd82fc'
+    }
+    //Append to HTML
     cardWrapper.appendChild(recipeCard)
     recipeCard.appendChild(recipePicture)
     recipeCard.appendChild(recipeName)
