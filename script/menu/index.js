@@ -29,7 +29,7 @@ function generateCards(recipes, filter) {
     const recipeType = document.createElement('p')
     recipeType.innerText = recipe.type
     // adding veggie badges to recipe description
-    recipeDescription.innerText += recipe.vegan
+    recipeType.innerText += recipe.vegan
       ? '(🌱Vegan)'
       : recipe.vegetarian
       ? '(🐥Vegetarian)'
