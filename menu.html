@@ -9,31 +9,35 @@
       href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@300..700&family=Rubik:ital,wght@0,300..900;1,300..900&display=swap"
       rel="stylesheet"
     />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Rubik:ital,wght@0,300..900;1,300..900&display=swap"
-      rel="stylesheet"
-    />
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Fira+Mono:wght@400;500;700&display=swap"
-      rel="stylesheet"
-    />
     <link rel="stylesheet" href="styles/styles.css" />
     <title>Dunder Muffin</title>
+    <script type="module" src="script/menu/index.js"></script>
   </head>
   <body>
-    <script type="application/javascript" src="script/index.js"></script>
     <header>
       <img class="logo" src="images/logo.png" alt="Logo de Dunder Muffin" />
       <nav>
-        <a href="index.html">Home</a>
-        <a href="menu.html">Menu</a>
-        <a href="contact.html">Contact</a>
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="menu.html"><span class="header-active">Menu</span></a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
       </nav>
     </header>
-    <section>
-      <h1>Titre 1</h1>
+    <section class="menu">
+      <h1>What will you eat today ?</h1>
+      <form id="select-filter-form">
+        <label for="recipe-filter"
+          >Show
+          <select name="recipe-filter" id="recipe-filter">
+            <option class="yellow-option" value="all">all</option>
+            <option class="purple-option" value="vegetarian">vegetarian</option>
+            <option class="blue-option" value="vegan">vegan</option>
+          </select>
+          recipes</label
+        >
+      </form>
+      <div class="card-wrapper"></div>
     </section>
     <footer>
       <div class="footer-contact">
@@ -42,8 +46,8 @@
         <p>SCRANTON PA 18504-9633</p>
       </div>
       <div class="footer-contact">
-        <p>dundermuffin@gmail.com</p>
-        <p>01.23.45.67.89</p>
+        <a href="mailto:dundermuffin@gmail.com">dundermuffin@gmail.com</a>
+        <a href="tel:0123456789">01.23.45.67.89</a>
       </div>
       <div class="footer-links">
         <a href="contact.html"><img src="/assets/icon-instagram.svg" /></a>

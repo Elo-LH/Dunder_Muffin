@@ -1,0 +1,82 @@
+[
+    {
+        "id": 1,
+        "name": "Kevin's Famous Chili",
+        "description": "Beef, red beans, corn, tomato sauce, carots and its slight carpet-flavored seasoning.",
+        "price": 10.90,
+        "type":"hot dish",
+        "vegetarian": false,
+        "vegan": false,
+        "picture": "./images/default-recipe-picture.jpg"
+    },
+    {
+        "id": 2,
+        "name": "Dwight's Grilled Boar with Beets",
+        "description": "Wild boar, beets (from Schrute farm), potatoes, aromatic herbs.",
+        "price": 13.90,
+        "type":"hot dish",
+        "vegetarian": false,
+        "vegan": false,
+        "picture": "./images/dwight-picture.jpg"
+    },
+    {
+        "id": 3,
+        "name": "Pam's Chocolate Cream Pie",
+        "description": "Chocolate custard, whipped cream and biscuit base.",
+        "price": 4.90,
+        "type":"dessert",
+        "vegetarian": true,
+        "vegan": false,
+        "picture": "./images/pam-picture.png"
+    },
+    {
+        "id": 4,
+        "name": "Stanley's Sacred Pretzel",
+        "description": "Pretzel dough sprinkled with either salt or sugar.",
+        "price": 3.90,
+        "type":"snack",
+        "vegetarian": true,
+        "vegan": true,
+        "picture": "./images/stanley-picture.png"
+    },
+    {
+        "id": 5,
+        "name": "Pepperoni Pizza, Alfredo's Style",
+        "description": "Pizza dough, tomato sauce, pepperoni, mozzarella, oregano.",
+        "price": 9.90,
+        "type":"hot dish",
+        "vegetarian": false,
+        "vegan": false,
+        "picture": "./images/alfredo-pizza.jpg"
+    },
+    {
+        "id": 6,
+        "name": "Angela's Double Fudge Brownies",
+        "description": "Chocolate, butter, vanilla and walnuts.",
+        "price": 3.90,
+        "type":"dessert",
+        "vegetarian": true,
+        "vegan": false,
+        "picture": "./images/angela-brownies.jpg"
+    },
+    {
+        "id": 7,
+        "name": "Creed's Peach Cobbler",
+        "description": "Peach, cobbler batter, cinnamon.",
+        "price": 4.90,
+        "type":"dessert",
+        "vegetarian": true,
+        "vegan": false,
+        "picture": "./images/creed-picture.jpg"
+    },
+    {
+        "id": 8,
+        "name": "Kelly's Diwali Samosas",
+        "description": "Sweet potato, green peas, olive oil, onion, garlic and spices.",
+        "price": 8.90,
+        "type":"snack",
+        "vegetarian": true,
+        "vegan": true,
+        "picture": "./images/kelly-picture.jpg"
+    }
+]
