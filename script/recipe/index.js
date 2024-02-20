@@ -31,7 +31,7 @@ function generateRecipeDetails(id) {
   recipeLink.href = './menu.html'
 
   recipeWrapper.appendChild(recipeDetails)
-  recipeWrapper.appendChild(recipeName)
+  recipeDetails.appendChild(recipeName)
   recipeDetails.appendChild(recipePicture)
   recipeDetails.appendChild(recipeDescription)
   recipeDetails.appendChild(recipePrice)
