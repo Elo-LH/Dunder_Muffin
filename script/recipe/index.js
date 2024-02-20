@@ -1,16 +1,15 @@
 // Récupération des pièces depuis le fichier JSON
 const reponse = await fetch('./data/recipes.json')
 const recipes = await reponse.json()
-const id = window.location.search.slice(4)
+const id = window.location.search.split('=')[1]
 console.log(id)
-const regexNumber = new RegExp('^[0-9]$')
 
 console.log(recipes)
 
 function generateRecipeDetails(id) {
   console.log('generateRecipeDetails entered')
   const recipeWrapper = document.querySelector('.recipe-wrapper')
-  const recipe = recipes[id - 1]
+  const recipe = recipes.find((recipe) => recipe.id == id)
   console.log(recipe)
   const recipeName = document.createElement('h1')
   recipeName.innerText = recipe.name
