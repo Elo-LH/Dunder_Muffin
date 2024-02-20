@@ -26,13 +26,13 @@ function generateCards(recipes, filter) {
       : (recipePicture.src = recipe.picture)
     const recipeName = document.createElement('h2')
     recipeName.innerText = recipe.name
-    const recipeDescription = document.createElement('p')
-    recipeDescription.innerText = recipe.description
+    const recipeType = document.createElement('p')
+    recipeType.innerText = recipe.type
     // adding veggie badges to recipe description
     recipeDescription.innerText += recipe.vegan
-      ? ' (🌱Vegan)'
+      ? '(🌱Vegan)'
       : recipe.vegetarian
-      ? ' (🥛Vegetarian)'
+      ? '(🐥Vegetarian)'
       : ''
 
     const recipeLink = document.createElement('a')
@@ -41,7 +41,7 @@ function generateCards(recipes, filter) {
     cardWrapper.appendChild(recipeCard)
     recipeCard.appendChild(recipePicture)
     recipeCard.appendChild(recipeName)
-    recipeCard.appendChild(recipeDescription)
+    recipeCard.appendChild(recipeType)
     recipeCard.appendChild(recipeLink)
   }
 }
