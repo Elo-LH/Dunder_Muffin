@@ -8,12 +8,25 @@ body {
   display: flex;
   min-height: 100vh;
   flex-direction: column;
-  overflow: auto;
 }
 
 body{
-  scrollbar-gutter: stable;
-  scrollbar-width: thin;
+  scrollbar-width: 5px;
+	scrollbar-color: #000 #969696;
+}
+
+::-webkit-scrollbar-track {
+  background: #969696;
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: #0000009a;
+  border-radius:5em;
+}
+
+::-webkit-scrollbar {
+  width: 5px;
+  background: transparent;
 }
 
 h2,
@@ -29,7 +42,6 @@ header {
   display: flex;
   justify-content: space-between;
   align-items: end;
-  background: pink;
 }
 .logo {
   width: 160px;
