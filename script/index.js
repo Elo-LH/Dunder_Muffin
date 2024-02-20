@@ -51,13 +51,13 @@ function generateCards(recipes) {
       : (recipePicture.src = recipe.picture)
     const recipeName = document.createElement('h2')
     recipeName.innerText = recipe.name
-    const recipeDescription = document.createElement('p')
-    recipeDescription.innerText = recipe.description
+    const recipeType = document.createElement('p')
+    recipeType.innerText = recipe.type
     // adding veggie badges to recipe description
-    recipeDescription.innerText += recipe.vegan
-      ? ' (🌱Vegan)'
+    recipeType.innerText += recipe.vegan
+      ? '(🌱Vegan)'
       : recipe.vegetarian
-      ? ' (🥛Vegetarian)'
+      ? '(🐥Vegetarian)'
       : ''
 
     const recipeLink = document.createElement('a')
@@ -66,7 +66,7 @@ function generateCards(recipes) {
     cardWrapper.appendChild(recipeCard)
     recipeCard.appendChild(recipePicture)
     recipeCard.appendChild(recipeName)
-    recipeCard.appendChild(recipeDescription)
+    recipeCard.appendChild(recipeType)
     recipeCard.appendChild(recipeLink)
   }
 }
@@ -82,19 +82,19 @@ function generateRecipeDetails(id) {
   recipePicture.src = recipe.picture
   const recipeDescription = document.createElement('p')
   recipeDescription.innerText = recipe.description
-  recipeDescription.innerText += recipe.vegan
-    ? ' (🌱Vegan)'
+  recipeDescription.innerHTML += recipe.vegan
+    ? ' <br> (🌱Vegan)'
     : recipe.vegetarian
-    ? ' (🥛Vegetarian)'
+    ? ' <br> (🐥Vegetarian)'
     : ''
   const recipePrice = document.createElement('p')
-  recipePrice.innerText = recipe.price
+  recipePrice.innerText = '$' + recipe.price
   const recipeLink = document.createElement('a')
-  recipeLink.innerText = 'Back to menu'
+  recipeLink.innerText = '<- Back to menu'
   recipeLink.href = './menu.html'
 
-  recipeWrapper.appendChild(recipeName)
   recipeWrapper.appendChild(recipeDetails)
+  recipeDetails.appendChild(recipeName)
   recipeDetails.appendChild(recipePicture)
   recipeDetails.appendChild(recipeDescription)
   recipeDetails.appendChild(recipePrice)
