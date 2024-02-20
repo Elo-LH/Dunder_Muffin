@@ -11,6 +11,7 @@
     />
     <link rel="stylesheet" href="styles/styles.css" />
     <title>Dunder Muffin</title>
+    <script type="module" src="script/menu/index.js"></script>
   </head>
   <body>
     <header>
@@ -23,6 +24,17 @@
     </header>
     <section class="menu">
       <h1>What will you eat today ?</h1>
+      <form id="select-filter-form">
+        <label for="recipe-filter"
+          >Show
+          <select name="recipe-filter" id="recipe-filter">
+            <option class="yellow-option" value="all">all</option>
+            <option class="purple-option" value="vegetarian">vegetarian</option>
+            <option class="blue-option" value="vegan">vegan</option>
+          </select>
+          recipes</label
+        >
+      </form>
       <div class="card-wrapper"></div>
     </section>
     <footer>
@@ -41,5 +53,4 @@
       </div>
     </footer>
   </body>
-  <script type="module" src="script/index.js"></script>
 </html>
