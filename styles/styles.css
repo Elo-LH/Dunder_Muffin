@@ -210,6 +210,10 @@ option:hover {
   width: fit-content;
   margin: auto;
   border-radius: 80% 20% 72% 28% / 20% 63% 37% 80%;
+  transition: all 200ms ease-in;
+}
+.recipe-card a:hover{
+  transform: translateX(5px);
 }
 
 /* Recipe details */
@@ -250,6 +254,10 @@ option:hover {
   height: fit-content;
   align-self: end;
   border-radius: 80% 20% 69% 31% / 32% 92% 8% 68%;
+  transition: all 200ms ease-out;
+}
+.recipe-wrapper a:hover{
+  transform: translateX(-5px);
 }
 @media screen and (max-width: 900px) {
   .recipe-wrapper div {
@@ -412,6 +420,9 @@ footer a:hover {
   display: flex;
   flex-direction: row;
   align-items: center;
+}
+footer img:hover{
+  transform: scale(1.1);
 }
 footer a {
   padding: 10px;
