@@ -11,24 +11,24 @@
     />
     <link rel="stylesheet" href="styles/styles.css" />
     <title>Dunder Muffin</title>
-    <script type="module" src="script/index.js"></script>
+    <script type="module" src="script/order/index.js"></script>
   </head>
   <body>
     <header>
       <img class="logo" src="images/logo.png" alt="Logo de Dunder Muffin" />
       <nav>
         <ul>
-          <li>
-            <a href="index.html"><span class="header-active">Home</span></a>
-          </li>
+          <li><a href="index.html">Home</a></li>
           <li><a href="menu.html">Menu</a></li>
           <li><a href="contact.html">Contact</a></li>
-          <li><a href="order.html">Order</a></li>
+          <li><a href="order.html"><span class="header-active"></span>Order</span></a></li>
         </ul>
       </nav>
     </header>
-    <section class="home">
-      <p>Phrase d'accroche avec un jeu de mot.</p>
+    <section class="order">
+      <h1>Your basket</h1>
+      <div class="orders-wrapper"></div>
+      <div class="valid-order"></div>
     </section>
     <footer>
       <div class="footer-contact">

@@ -1,0 +1,30 @@
+[
+    {
+        "id": 1,
+        "recipe": {
+            "id": 1,
+            "name": "Kevin's Famous Chili",
+            "description": "Beef, red beans, corn, tomato sauce, carots and its slight carpet-flavored seasoning.",
+            "price": 10.90,
+            "type":"hot dish",
+            "vegetarian": false,
+            "vegan": false,
+            "picture": "./images/default-recipe-picture.jpg"
+        },
+        "number": 2
+    },
+    {
+        "id": 2,
+        "recipe":  {
+            "id": 3,
+            "name": "Pam's Chocolate Cream Pie",
+            "description": "Chocolate custard, whipped cream and biscuit base.",
+            "price": 4.90,
+            "type":"dessert",
+            "vegetarian": true,
+            "vegan": false,
+            "picture": "./images/pam-picture.png"
+        },
+        "number": 2
+    }
+]
