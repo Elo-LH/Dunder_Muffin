@@ -1,10 +1,10 @@
-const reponse = await fetch('./data/basketRecipes.json')
-const basketRecipes = await reponse.json()
-let basketWrapper = document.querySelector('.basket-wrapper')
+const reponse = await fetch('./data/orders.json')
+const orders = await reponse.json()
+let ordersWrapper = document.querySelector('.orders-wrapper')
 // if no order if basket show empty basket message
-let emptyBasket = document.createElement('h2')
-emptyBasket.innerText = 'Your basket is empty !'
-basketRecipes[0] ?? basketWrapper.appendChild(emptyBasket)
+let emptyOrders = document.createElement('h2')
+emptyOrders.innerText = 'Your have no current order, go to menu to add some !'
+orders[0] ?? ordersWrapper.appendChild(emptyBasket)
 
 function addOneRecipe(event) {
   console.log(event)
@@ -12,21 +12,21 @@ function addOneRecipe(event) {
   let buttonId = event.target.id
   const id = buttonId.split('-')[1]
   console.log(id)
-  const order = basketRecipes.find((order) => order.id == id)
+  const order = orders.find((order) => order.id == id)
   if (buttonId.charAt(0) == 'r') {
     order.number > 0 && order.number--
   } else {
     order.number < 20 && order.number++
   }
-  generateBasket(basketRecipes)
-  generateValidOrder(basketRecipes)
+  generateBasket(orders)
+  generateValidOrder(orders)
 }
 
-function generateBasket(basketRecipes) {
-  basketWrapper.innerHTML = ''
+function generateBasket(orders) {
+  ordersWrapper.innerHTML = ''
   console.log('Entered generate basket')
   //Generate order cards
-  for (let order of basketRecipes) {
+  for (let order of orders) {
     const orderCard = document.createElement('div')
     orderCard.setAttribute('class', 'order-card')
     const recipePicture = document.createElement('img')
@@ -64,7 +64,7 @@ function generateBasket(basketRecipes) {
     }
 
     //Append to HTML
-    basketWrapper.appendChild(orderCard)
+    ordersWrapper.appendChild(orderCard)
     orderCard.appendChild(recipeLink)
     orderCard.appendChild(recipePicture)
     orderCard.appendChild(recipePrice)
@@ -74,10 +74,10 @@ function generateBasket(basketRecipes) {
     orderCard.appendChild(orderTotal)
   }
 }
-function generateValidOrder(basketRecipes) {
+function generateValidOrder(orders) {
   let totalItems = 0
   let totalPrice = 0
-  for (let order of basketRecipes) {
+  for (let order of orders) {
     totalItems += order.number
     totalPrice += order.recipe.price * order.number
   }
@@ -85,14 +85,14 @@ function generateValidOrder(basketRecipes) {
   total.innerText = `Your order contains ${totalItems} items for a total of $${Math.floor(
     totalPrice
   )}`
-  basketWrapper.appendChild(total)
+  ordersWrapper.appendChild(total)
   const validateOrder = document.createElement('button')
   validateOrder.innerText = 'Validate order'
-  basketWrapper.appendChild(validateOrder)
+  ordersWrapper.appendChild(validateOrder)
 }
 // choose a name and date for the command in popup ?
 // reset basket when sending order
 // add sending order to json file
 
-generateBasket(basketRecipes)
-generateValidOrder(basketRecipes)
+generateBasket(orders)
+generateValidOrder(orders)
