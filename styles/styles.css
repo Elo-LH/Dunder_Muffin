@@ -10,9 +10,9 @@ body {
   flex-direction: column;
 }
 
-body{
+body {
   scrollbar-width: 5px;
-	scrollbar-color: #000 #969696;
+  scrollbar-color: #000 #969696;
 }
 
 ::-webkit-scrollbar-track {
@@ -21,7 +21,7 @@ body{
 
 ::-webkit-scrollbar-thumb {
   background-color: #0000009a;
-  border-radius:5em;
+  border-radius: 5em;
 }
 
 ::-webkit-scrollbar {
@@ -47,8 +47,8 @@ header {
   width: 160px;
   height: 105px;
 }
-ul{
-  list-style-type:none;
+ul {
+  list-style-type: none;
   display: flex;
 }
 nav ul li a {
@@ -64,7 +64,7 @@ nav ul li a {
 }
 
 nav ul li a::after {
-  content: "";
+  content: '';
   position: absolute;
   bottom: 0;
   left: 0;
@@ -79,14 +79,14 @@ nav ul li a::after {
 nav ul li:hover a::after {
   transform: translatex(0);
 }
-.header-active{
+.header-active {
   text-decoration: underline;
-  text-decoration-thickness:5px;
+  text-decoration-thickness: 5px;
   font-weight: 800;
 }
 
 @media screen and (max-width: 900px) {
-  header{
+  header {
     align-items: center;
   }
   nav ul {
@@ -318,6 +318,12 @@ h2 {
   flex-wrap: wrap;
   justify-content: space-around;
   padding-bottom: 40px;
+}
+label {
+  display: flex;
+}
+label p {
+  padding-left: 10px;
 }
 .form-card {
   padding: 30px 20px;
