@@ -10,9 +10,9 @@ body {
   flex-direction: column;
 }
 
-body {
-  scrollbar-width: 5px;
-  scrollbar-color: #000 #969696;
+* {
+  scrollbar-width: thin;
+  scrollbar-color: #0000009a #969696;
 }
 
 ::-webkit-scrollbar-track {
