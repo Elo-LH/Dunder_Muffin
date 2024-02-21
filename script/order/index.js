@@ -7,12 +7,14 @@ emptyBasket.innerText = 'Your basket is empty !'
 basketRecipes[0] ?? basketWrapper.appendChild(emptyBasket)
 //Initialize total
 let totalPrice = 0
+let totalItems = 0
 
 function generateBasket(basketRecipes) {
   console.log('Entered generate basket')
   //Generate order cards
   for (let order of basketRecipes) {
     totalPrice += order.recipe.price * order.number
+    totalItems += order.number
     const orderCard = document.createElement('div')
     orderCard.setAttribute('class', 'order-card')
     const recipePicture = document.createElement('img')
@@ -47,7 +49,17 @@ function generateBasket(basketRecipes) {
     orderCard.appendChild(orderTotal)
   }
 }
-function generateValidOrder(totalPrice) {}
+function generateValidOrder(totalPrice, totalItems) {
+  const total = document.createElement('p')
+  total.innerText = `Your order contains ${totalItems} items for a total of $${totalPrice}`
+  basketWrapper.appendChild(total)
+  const validateOrder = document.createElement('button')
+  validateOrder.innerText = 'Validate order'
+  basketWrapper.appendChild(validateOrder)
+}
+// choose a name and date for the command in popup ?
+// reset basket when sending order
+// add sending order to json file
 
 generateBasket(basketRecipes)
-generateValidOrder(totalPrice)
+generateValidOrder(totalPrice, totalItems)
