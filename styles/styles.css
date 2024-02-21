@@ -41,22 +41,55 @@ header {
   margin: 15px auto 20px auto;
   display: flex;
   justify-content: space-between;
-  align-items: end;
+  align-items: baseline;
 }
 .logo {
   width: 160px;
   height: 105px;
 }
-nav a {
+ul{
+  list-style-type:none;
+  display: flex;
+}
+nav ul li a {
   font-family: 'Rubik', sans-serif;
   font-size: 32px;
   font-weight: bold;
   color: #000;
   text-decoration: none;
   margin-left: 75px;
+  display: block;
+  position: relative;
+  overflow: hidden;
 }
+
+nav ul li a::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  transform: translatex(-100%);
+  border-bottom: 5px solid #000;
+  transition: all 300ms;
+  z-index: -1;
+  transform-origin: top left;
+}
+nav ul li:hover a::after {
+  transform: translatex(0);
+}
+.header-active{
+  text-decoration: underline;
+  text-decoration-thickness:5px;
+  font-weight: 800;
+}
+
 @media screen and (max-width: 900px) {
-  nav a {
+  header{
+    align-items: center;
+  }
+  nav ul {
     display: flex;
     flex-direction: column;
     font-size: 24px;
