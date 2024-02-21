@@ -370,13 +370,22 @@ label p {
   margin: 20px 0px;
   align-self: center;
   padding: 10px 20px;
-  background-color: white;
   border: none;
   border-radius: 5px;
   box-shadow: 4px 8px 4px #00000040;
   cursor: pointer;
   font-family: 'Fira Code', monospace;
   font-size: 1em;
+  background: linear-gradient(to right, #fdff8a 5%, #fff 0% 100%);
+  background-size: 100%;
+  transition: background-size 500ms ease-in-out,
+              transform 300ms ease-in,
+              box-shadow 300ms ease-in;
+}
+.contact button:hover{
+  background-size: 2000%;
+  transform: translate(-5px, -5px);
+  box-shadow: 9px 13px 9px #00000040;
 }
 .button-holder {
   flex: 100%;
