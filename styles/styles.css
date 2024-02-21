@@ -401,7 +401,7 @@ label p {
   width: 400px;
   height: 200px;
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
   flex-wrap: wrap;
   justify-content: space-between;
   text-align: center;
@@ -415,9 +415,9 @@ label p {
 }
 .order-card p {
   margin: 0;
+  text-align: left;
 }
 .order-card a {
-  font-family: 'Fira Code', monospace;
   padding: 5px;
   text-decoration: none;
   color: #000;
