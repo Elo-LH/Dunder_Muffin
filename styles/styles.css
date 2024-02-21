@@ -10,9 +10,9 @@ body {
   flex-direction: column;
 }
 
-body{
+body {
   scrollbar-width: 5px;
-	scrollbar-color: #000 #969696;
+  scrollbar-color: #000 #969696;
 }
 
 ::-webkit-scrollbar-track {
@@ -21,7 +21,7 @@ body{
 
 ::-webkit-scrollbar-thumb {
   background-color: #0000009a;
-  border-radius:5em;
+  border-radius: 5em;
 }
 
 ::-webkit-scrollbar {
@@ -47,8 +47,8 @@ header {
   width: 160px;
   height: 105px;
 }
-ul{
-  list-style-type:none;
+ul {
+  list-style-type: none;
   display: flex;
 }
 nav ul li a {
@@ -64,7 +64,7 @@ nav ul li a {
 }
 
 nav ul li a::after {
-  content: "";
+  content: '';
   position: absolute;
   bottom: 0;
   left: 0;
@@ -79,14 +79,14 @@ nav ul li a::after {
 nav ul li:hover a::after {
   transform: translatex(0);
 }
-.header-active{
+.header-active {
   text-decoration: underline;
-  text-decoration-thickness:5px;
+  text-decoration-thickness: 5px;
   font-weight: 800;
 }
 
 @media screen and (max-width: 900px) {
-  header{
+  header {
     align-items: center;
   }
   nav ul {
@@ -147,29 +147,41 @@ nav ul li:hover a::after {
 }
 #select-filter-form {
   text-align: center;
+  width: fit-content;
+  margin: auto;
+  display: flex;
+  align-items: end;
+
 }
 select {
   padding: 10px;
+  padding-bottom: 2px;
   font-family: 'Fira Code', monospace;
   font-size: 1.1em;
+  border:none;
+  box-shadow: 10px 5px 5px #00000040;
+  border-radius: 0%;
+  background-color: #fff;
 }
 option {
   font-size: 1.1em;
   font-weight: 400;
   padding: 10px;
 }
+
 option:hover {
   background-color: white;
 }
-.yellow-option {
+
+/* .yellow-option:hover {
   background-color: #fdff8a;
 }
-.purple-option {
+.purple-option:hover {
   background-color: #cd82fc;
 }
-.blue-option {
+.blue-option:hover {
   background-color: #5eacf5;
-}
+} */
 
 /* Recipes cards */
 .recipe-card {
@@ -318,6 +330,12 @@ h2 {
   flex-wrap: wrap;
   justify-content: space-around;
   padding-bottom: 40px;
+}
+label {
+  display: flex;
+}
+label p {
+  padding-left: 10px;
 }
 .form-card {
   padding: 30px 20px;

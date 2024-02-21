@@ -11,6 +11,7 @@
     />
     <link rel="stylesheet" href="styles/styles.css" />
     <title>Dunder Muffin</title>
+    <script type="module" src="script/contact/index.js"></script>
   </head>
   <body>
     <header>
@@ -19,7 +20,11 @@
         <ul>
           <li><a href="index.html">Home</a></li>
           <li><a href="menu.html">Menu</a></li>
-          <li><a href="contact.html"><span class="header-active">Contact<span class="header-active"></span></a></li>
+          <li>
+            <a href="contact.html"
+              ><span class="header-active">Contact</span></a
+            >
+          </li>
         </ul>
       </nav>
     </header>
@@ -38,21 +43,40 @@
         </p>
       </div>
       <h2>Contact us directly with this form :</h2>
-      <form class="contact-form">
+      <form
+        class="contact-form"
+        method="post"
+        action="mailto:dundermuffin@gmail.com?subject=Request from DunderMuffin.com"
+        enctype="text/plain"
+      >
         <div class="form-card">
-          <label for="name">Name</label>
-          <input type="text" id="name" name="name" />
+          <label for="name" id="name-label"
+            >Name
+            <p id="name-check"></p
+          ></label>
+          <input type="text" id="name" name="name" minlength="2" required />
         </div>
         <div class="form-card">
-          <label for="email">Email</label>
-          <input type="email" id="email" name="email" />
+          <label for="email" id="email-label"
+            >Email
+            <p id="email-check"></p
+          ></label>
+          <input type="email" id="email" name="email" required />
         </div>
         <div class="form-card" id="form-message">
-          <label for="contact-message">Message</label>
-          <textarea id="contact-message"></textarea>
+          <label for="contact-message" id="contact-message-label"
+            >Message
+            <p id="contact-message-check"></p
+          ></label>
+          <textarea
+            id="contact-message"
+            minlength="20"
+            name="message"
+            required
+          ></textarea>
         </div>
         <div class="button-holder">
-          <button type="submit" method="GET">Send message</button>
+          <button type="submit">Send message</button>
         </div>
       </form>
     </section>
@@ -72,5 +96,4 @@
       </div>
     </footer>
   </body>
-  <script type="module" src="script/contact/index.js"></script>
 </html>
