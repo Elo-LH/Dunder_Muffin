@@ -1,23 +1,74 @@
-const reponse = await fetch('./data/orders.json')
-const orders = await reponse.json()
+function getLocalOrder() {
+  //get orders in local storage
+  let orders_json = localStorage.getItem('orders')
+  let orders = JSON.parse(orders_json)
+  console.log('The json from local storage is:')
+  console.log(orders)
+  // If the file is empty
+  if (!orders) {
+    // set to empty array
+    orders = []
+    // create local storage
+    orders_json = JSON.stringify(orders)
+    localStorage.setItem('orders', orders_json)
+  }
+  return orders
+}
+
+function updateLocalOrder(orders) {
+  let orders_json = JSON.stringify(orders)
+  localStorage.setItem('orders', orders_json)
+}
+
+function setNumber(id, orders, operand) {
+  for (var i = 0; i < orders.length; i++) {
+    if (orders[i].id === id) {
+      if ((operand = '+')) {
+        orders[i].number++
+      } else {
+        orders[i].number--
+      }
+      return orders
+    }
+  }
+}
+//get recipes data from json
+const reponse = await fetch('./data/recipes.json')
+const recipes = await reponse.json()
+//get orders from local storage
+let orders = getLocalOrder()
 let ordersWrapper = document.querySelector('.orders-wrapper')
 // if no order if basket show empty basket message
 let emptyOrders = document.createElement('h2')
 emptyOrders.innerText = 'Your have no current order, go to menu to add some !'
-orders[0] ?? ordersWrapper.appendChild(emptyBasket)
 
-function addOneRecipe(event) {
+if (orders.length == 0) {
+  console.log('yes')
+  ordersWrapper.appendChild(emptyOrders)
+} else {
+  generateBasket(orders)
+  generateValidOrder(orders)
+}
+
+function updateOrder(event) {
   console.log(event)
   console.log(event.target.id)
   let buttonId = event.target.id
   const id = buttonId.split('-')[1]
   console.log(id)
-  const order = orders.find((order) => order.id == id)
+  const selectedRecipe = recipes.find((recipe) => recipe.id == id)
+  let orders = getLocalOrder()
+  let order = orders.find((order) => order.id == id)
   if (buttonId.charAt(0) == 'r') {
     order.number > 0 && order.number--
   } else {
-    order.number < 20 && order.number++
+    if (!order) {
+      order = orders.push({ id: id, recipe: selectedRecipe, number: 1 })
+    } else {
+      setNumber(id, orders, '+')
+    }
   }
+  updateLocalOrder(orders)
   generateBasket(orders)
   generateValidOrder(orders)
 }
@@ -37,13 +88,13 @@ function generateBasket(orders) {
     orderNumber.innerText = `Number ${order.number}`
     orderNumber.setAttribute('id', 'order-number')
     const removeButton = document.createElement('button')
-    removeButton.addEventListener('click', (event) => addOneRecipe(event))
+    removeButton.addEventListener('click', (event) => updateOrder(event))
     removeButton.innerText = 'Remove 1'
     removeButton.setAttribute('id', `remove-${order.id}`)
     const addButton = document.createElement('button')
     addButton.innerText = 'Add 1'
     addButton.setAttribute('id', `add-${order.id}`)
-    addButton.addEventListener('click', (event) => addOneRecipe(event))
+    addButton.addEventListener('click', (event) => updateOrder(event))
     const orderTotal = document.createElement('p')
     orderTotal.innerHTML = `Subtotal $${Math.floor(
       order.number * order.recipe.price
@@ -93,6 +144,3 @@ function generateValidOrder(orders) {
 // choose a name and date for the command in popup ?
 // reset basket when sending order
 // add sending order to json file
-
-generateBasket(orders)
-generateValidOrder(orders)
