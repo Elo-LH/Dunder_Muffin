@@ -132,9 +132,16 @@ function generateValidOrder(orders) {
     totalPrice
   )}`
   ordersWrapper.appendChild(total)
-  const validateOrder = document.createElement('button')
-  validateOrder.innerText = 'Validate order'
-  ordersWrapper.appendChild(validateOrder)
+  const sendButton = document.createElement('button')
+  //add event listener on sending order button
+  sendButton.addEventListener('click', sendOrder)
+  sendButton.innerText = 'Validate order'
+  ordersWrapper.appendChild(sendButton)
+  const resetButton = document.createElement('button')
+  //add event listener on reset order button
+  resetButton.addEventListener('click', deleteOrder)
+  resetButton.innerText = 'Delete order'
+  ordersWrapper.appendChild(resetButton)
 }
 
 function updateOrders() {
@@ -149,6 +156,24 @@ function updateOrders() {
     generateValidOrder(orders)
   }
 }
+
+function sendOrder() {
+  let orders_json = JSON.stringify([])
+  localStorage.setItem('orders', orders_json)
+  alert(
+    'Your order has been successfully send to us ! Thank you for your trust, see you soon.'
+  )
+  updateOrders()
+}
+function deleteOrder() {
+  let orders_json = JSON.stringify([])
+  localStorage.setItem('orders', orders_json)
+  alert(
+    'Your pre-order has been successfully deleted. Please contact us if you have any trouble on this site'
+  )
+  updateOrders()
+}
+
 updateOrders()
 
 // choose a name and date for the command in popup ?
