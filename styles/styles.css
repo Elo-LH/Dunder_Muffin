@@ -226,18 +226,42 @@ option {
 }
 .card-infos {
   display: flex;
-  flex: 3;
   flex-direction: column;
   align-items: baseline;
+  margin-top: 0;
 }
 .order-options {
-  flex: 1;
+  padding: 10px 15px;
+  width: 80px;
   display: flex;
   flex-wrap: wrap;
+  border-top: 10px solid white;
+  align-items: center;
+  justify-content: center;
+  background-color: #f7fc00;
+  align-self: self-end;
 }
-.order-options:first-child {
-  flex: 1;
-  width: 100%;
+.order-options > * {
+  width: 50%;
+}
+.order-options img {
+  width: 33px;
+}
+.order-options p {
+  width: 33px;
+}
+.order-options button {
+  width: fit-content;
+  height: fit-content;
+  padding: 0;
+  border-radius: 50%;
+  border: none;
+  background-color: inherit;
+}
+.order-options button img {
+  width: 30px;
+  padding: 0;
+  margin: 0;
 }
 
 .recipe-card p {

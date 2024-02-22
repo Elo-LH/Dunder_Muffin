@@ -58,7 +58,7 @@ function updateNumber(event) {
       const orderIndex = orders.indexOf(order)
       order = orders.splice(orderIndex, 1)
       let orderNumber = document.getElementById(`number-${id}`)
-      orderNumber.innerText = `Number 0`
+      orderNumber.innerText = '0'
       updateLocalOrder(orders)
       return
     } else {
@@ -73,7 +73,7 @@ function updateNumber(event) {
     }
   }
   let orderNumber = document.getElementById(`number-${id}`)
-  orderNumber.innerText = `Number ${order.number}`
+  orderNumber.innerText = `${order.number}`
   updateLocalOrder(orders)
 }
 
@@ -131,23 +131,30 @@ function generateCards(recipes, filter) {
     //Order buttons
     const orderOptions = document.createElement('div')
     orderOptions.setAttribute('class', 'order-options')
+    const orderBasketImg = document.createElement('img')
+    orderBasketImg.src = './assets/basket-icon.svg'
     const orderNumber = document.createElement('p')
     let order = orders.find((order) => order.id == recipe.id)
     if (!order) {
-      orderNumber.innerText = `Number 0`
+      orderNumber.innerText = '0'
     } else {
-      orderNumber.innerText = `Number ${order.number}`
+      orderNumber.innerText = order.number
     }
     orderNumber.setAttribute('id', `number-${recipe.id}`)
     const removeButton = document.createElement('button')
     console.log('Entered updateNumber')
     removeButton.addEventListener('click', (event) => updateNumber(event))
-    removeButton.innerText = 'Remove 1'
     removeButton.setAttribute('id', `remove-${recipe.id}`)
+    const removeLogo = document.createElement('img')
+    removeLogo.src = './assets/remove-icon.svg'
+    removeLogo.alt = 'remove 1 from basket'
+
     const addButton = document.createElement('button')
-    addButton.innerText = 'Add 1'
     addButton.setAttribute('id', `add-${recipe.id}`)
     addButton.addEventListener('click', (event) => updateNumber(event))
+    const addLogo = document.createElement('img')
+    addLogo.src = './assets/add-icon.svg'
+    addLogo.alt = 'add 1 to basket'
 
     const cardInfos = document.createElement('div')
     cardInfos.setAttribute('class', 'card-infos')
@@ -163,9 +170,12 @@ function generateCards(recipes, filter) {
     cardInfos.appendChild(recipePrice)
     cardInfos.appendChild(recipeLink)
     cardBottom.appendChild(orderOptions)
+    orderOptions.appendChild(orderBasketImg)
     orderOptions.appendChild(orderNumber)
     orderOptions.appendChild(removeButton)
+    removeButton.appendChild(removeLogo)
     orderOptions.appendChild(addButton)
+    addButton.appendChild(addLogo)
   }
 }
 
