@@ -118,16 +118,7 @@ function generateCards(recipes, filter) {
     //Price
     const recipePrice = document.createElement('p')
     recipePrice.innerText = `$${recipe.price}`
-    //Change bakcground and link color by veggie type
-    if (recipe.vegan) {
-      recipeLink.style.backgroundColor = '#cd82fca6'
-      recipeLink.style.borderRadius = '80% 20% 81% 19% / 9% 87% 13% 91%'
-      recipeCard.style.backgroundColor = '#5eacf5'
-    } else if (recipe.vegetarian) {
-      recipeLink.style.backgroundColor = '#fdff8a9d'
-      recipeLink.style.borderRadius = '80% 20% 81% 19% / 20% 25% 75% 80%'
-      recipeCard.style.backgroundColor = '#cd82fc'
-    }
+
     //Order buttons
     const orderOptions = document.createElement('div')
     orderOptions.setAttribute('class', 'order-options')
@@ -154,10 +145,24 @@ function generateCards(recipes, filter) {
     addLogo.setAttribute('id', `add-${recipe.id}`)
     addLogo.addEventListener('click', (event) => updateNumber(event))
 
+    //Set wrappers
     const cardInfos = document.createElement('div')
     cardInfos.setAttribute('class', 'card-infos')
     const cardBottom = document.createElement('div')
     cardBottom.setAttribute('class', 'card-bottom')
+
+    //Change bakcground and link color by veggie type
+    if (recipe.vegan) {
+      recipeLink.style.backgroundColor = '#cd82fca6'
+      recipeLink.style.borderRadius = '80% 20% 81% 19% / 9% 87% 13% 91%'
+      recipeCard.style.backgroundColor = '#5eacf5'
+      orderOptions.style.backgroundColor = '#cd82fca6'
+    } else if (recipe.vegetarian) {
+      recipeLink.style.backgroundColor = '#fdff8a9d'
+      recipeLink.style.borderRadius = '80% 20% 81% 19% / 20% 25% 75% 80%'
+      recipeCard.style.backgroundColor = '#cd82fc'
+      orderOptions.style.backgroundColor = '#fdff8a9d'
+    }
     //Append to HTML
     cardWrapper.appendChild(recipeCard)
     recipeCard.appendChild(recipePicture)
