@@ -15,6 +15,11 @@ body {
   scrollbar-color: #000 #969696;
 }
 
+* {
+  scrollbar-width: thin;
+  scrollbar-color: #0000009a #969696;
+}
+
 ::-webkit-scrollbar-track {
   background: #969696;
 }
@@ -141,28 +146,43 @@ nav ul li a {
 }
 #select-filter-form {
   text-align: center;
+  width: fit-content;
+  margin: 30px auto;
+}
+label{
+  display:flex;
+  align-items:end;
 }
 select {
-  padding: 10px;
+  padding: 2px 10px;
   font-family: 'Fira Code', monospace;
   font-size: 1.1em;
+  border:none;
+  box-shadow: 10px 5px 5px #00000040;
+  border-radius: 0%;
+  background-color: #fff;
+  margin:0 20px;
+  font-weight: 600;
+  background-color: #b1b1b1;
+}
+select:hover{
+  outline: #000 solid 3px;
+  font-weight: 800;
 }
 option {
   font-size: 1.1em;
   font-weight: 400;
   padding: 10px;
 }
-option:hover {
-  background-color: white;
-}
+
 .yellow-option {
-  background-color: #fdff8a;
+  background: #fdff8a77;
 }
 .purple-option {
-  background-color: #cd82fc;
+  background-color: #cd82fc77;
 }
 .blue-option {
-  background-color: #5eacf5;
+  background-color: #5eacf577;
 }
 
 /* Recipes cards */
@@ -393,6 +413,61 @@ label p {
   flex: 100%;
   display: flex;
   justify-content: center;
+}
+/* ----------------- Order page ----------------- */
+.order {
+  flex: 1;
+  background-image: url('../images/texture.jpg');
+  background-size: cover;
+  font-family: 'Fira Code', monospace;
+  padding: 100px 0;
+}
+
+.order h1 {
+  margin: 0 auto;
+  padding-bottom: 60px;
+  text-align: center;
+  font-size: 2.5rem;
+  font-weight: bold;
+}
+.orders-wrapper {
+  margin: 0 auto;
+  padding: 40px 20px;
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 40px;
+}
+/* Order cards */
+.order-card {
+  padding: 10px;
+  width: 400px;
+  height: 200px;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  text-align: center;
+  background-color: #fdff8a;
+  box-shadow: 4px 8px 4px #00000040;
+  margin: 10px 0;
+}
+.order-card img {
+  height: 100px;
+  width: 100px;
+}
+.order-card p {
+  margin: 0;
+  text-align: left;
+}
+.order-card a {
+  padding: 5px;
+  text-decoration: none;
+  color: #000;
+  font-size: 1rem;
+  background-color: #5eacf593;
+  margin: auto;
+  border-radius: 80% 20% 72% 28% / 20% 63% 37% 80%;
 }
 
 /* ----------------- Footer ----------------- */
