@@ -43,10 +43,15 @@ header {
   justify-content: space-between;
   align-items: baseline;
 }
-.logo {
+header img {
   width: 160px;
   height: 105px;
+  transition: all 300ms ease-in-out;
 }
+header img:hover{
+  transform: scale(0.8);
+}
+
 ul {
   list-style-type: none;
   display: flex;
@@ -54,35 +59,24 @@ ul {
 nav ul li a {
   font-family: 'Rubik', sans-serif;
   font-size: 32px;
+  padding: 5px;
   font-weight: bold;
   color: #000;
   text-decoration: none;
   margin-left: 75px;
-  display: block;
-  position: relative;
-  overflow: hidden;
+}
+.header-unactive{
+  background: linear-gradient(transparent 50%, #f7fc00 50%);
+  background-size: auto 200%;
+  transition: all 300ms ease-in-out;
 }
 
-nav ul li a::after {
-  content: '';
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  height: 100%;
-  width: 100%;
-  transform: translatex(-100%);
-  border-bottom: 5px solid #000;
-  transition: all 300ms;
-  z-index: -1;
-  transform-origin: top left;
+.header-unactive:hover{
+  background-position-y: 100%;
 }
-nav ul li:hover a::after {
-  transform: translatex(0);
-}
+
 .header-active {
-  text-decoration: underline;
-  text-decoration-thickness: 5px;
-  font-weight: 800;
+  background: #f7fc00;
 }
 
 @media screen and (max-width: 900px) {
@@ -210,10 +204,14 @@ option:hover {
   width: fit-content;
   margin: auto;
   border-radius: 80% 20% 72% 28% / 20% 63% 37% 80%;
-  transition: all 200ms ease-in;
+  transition: transform 200ms ease-in,
+              filter 100ms ease-in-out,
+              font-weight 300ms ease-in-out;
 }
 .recipe-card a:hover{
   transform: translateX(5px);
+  font-weight: 600;
+  filter: contrast(200%);
 }
 
 /* Recipe details */
@@ -254,10 +252,14 @@ option:hover {
   height: fit-content;
   align-self: end;
   border-radius: 80% 20% 69% 31% / 32% 92% 8% 68%;
-  transition: all 200ms ease-out;
+  transition: transform 200ms ease-in,
+              filter 100ms ease-in-out,
+              font-weight 300ms ease-in-out;
 }
 .recipe-wrapper a:hover{
   transform: translateX(-5px);
+  font-weight: 600;
+  filter: contrast(200%);
 }
 @media screen and (max-width: 900px) {
   .recipe-wrapper div {
@@ -449,5 +451,5 @@ footer img {
   transition: all 200ms ease-in;
 }
 footer img:hover{
-  transform: scale(1.1);
+  transform: scale(0.8);
 }
