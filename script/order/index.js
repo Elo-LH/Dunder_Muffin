@@ -35,20 +35,10 @@ function setNumber(id, orders, operand) {
 //get recipes data from json
 const reponse = await fetch('./data/recipes.json')
 const recipes = await reponse.json()
-//get orders from local storage
-let orders = getLocalOrder()
 let ordersWrapper = document.querySelector('.orders-wrapper')
 // if no order if basket show empty basket message
 let emptyOrders = document.createElement('h2')
 emptyOrders.innerText = 'Your have no current order, go to menu to add some !'
-
-if (orders.length == 0) {
-  console.log('yes')
-  ordersWrapper.appendChild(emptyOrders)
-} else {
-  generateBasket(orders)
-  generateValidOrder(orders)
-}
 
 function updateOrder(event) {
   console.log(event)
@@ -60,7 +50,12 @@ function updateOrder(event) {
   let orders = getLocalOrder()
   let order = orders.find((order) => order.id == id)
   if (buttonId.charAt(0) == 'r') {
-    order.number > 0 && order.number--
+    if (order.number == 1) {
+      const orderIndex = orders.indexOf(order)
+      order = orders.splice(orderIndex, 1)
+    } else {
+      order.number > 0 && order.number--
+    }
   } else {
     if (!order) {
       order = orders.push({ id: id, recipe: selectedRecipe, number: 1 })
@@ -69,8 +64,7 @@ function updateOrder(event) {
     }
   }
   updateLocalOrder(orders)
-  generateBasket(orders)
-  generateValidOrder(orders)
+  updateOrders()
 }
 
 function generateBasket(orders) {
@@ -125,6 +119,7 @@ function generateBasket(orders) {
     orderCard.appendChild(orderTotal)
   }
 }
+
 function generateValidOrder(orders) {
   let totalItems = 0
   let totalPrice = 0
@@ -141,6 +136,21 @@ function generateValidOrder(orders) {
   validateOrder.innerText = 'Validate order'
   ordersWrapper.appendChild(validateOrder)
 }
+
+function updateOrders() {
+  //get orders from local storage
+  let orders = getLocalOrder()
+  console.log('Entered updateOrders')
+  if (orders.length == 0) {
+    ordersWrapper.innerHTML = ''
+    ordersWrapper.appendChild(emptyOrders)
+  } else {
+    generateBasket(orders)
+    generateValidOrder(orders)
+  }
+}
+updateOrders()
+
 // choose a name and date for the command in popup ?
 // reset basket when sending order
 // add sending order to json file
