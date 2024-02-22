@@ -201,7 +201,6 @@ option {
   height: 350px;
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
   text-align: center;
   background-color: #fdff8a;
   box-shadow: 4px 8px 4px #00000040;
@@ -215,23 +214,45 @@ option {
 
 .recipe-card h2 {
   margin: 0;
-  padding-bottom: 10px;
+  padding: 10px 0px;
+  height: 100px;
   font-family: 'Rubik', sans-serif;
   font-weight: bold;
+}
+.card-bottom {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+}
+.card-infos {
+  display: flex;
+  flex: 3;
+  flex-direction: column;
+  align-items: baseline;
+}
+.order-options {
+  flex: 1;
+  display: flex;
+  flex-wrap: wrap;
+}
+.order-options:first-child {
+  flex: 1;
+  width: 100%;
 }
 
 .recipe-card p {
   margin: 0;
+  margin-bottom: 10px;
 }
 .recipe-card a {
   font-family: 'Fira Code', monospace;
   padding: 5px;
+  margin-bottom: 15px;
   text-decoration: none;
   color: #000;
   font-size: 0.8rem;
   background-color: #5eacf593;
   width: fit-content;
-  margin: auto;
   border-radius: 80% 20% 72% 28% / 20% 63% 37% 80%;
   transition: transform 200ms ease-in, filter 100ms ease-in-out,
     font-weight 300ms ease-in-out;

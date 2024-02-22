@@ -102,17 +102,22 @@ function generateCards(recipes, filter) {
     const recipeName = document.createElement('h2')
     recipeName.innerText = recipe.name
     const recipeType = document.createElement('p')
-    recipeType.innerText = recipe.type
+    //put first letter in caps
+    let majType = recipe.type.charAt(0).toUpperCase() + recipe.type.slice(1)
+    recipeType.innerText = majType
     // adding veggie badges to recipe description
     recipeType.innerText += recipe.vegan
-      ? '(🌱Vegan)'
+      ? ' - 🌱Vegan'
       : recipe.vegetarian
-      ? '(🐥Vegetarian)'
+      ? ' - 🐥Vegetarian'
       : ''
     //Link to detailed recipe page
     const recipeLink = document.createElement('a')
     recipeLink.innerText = 'See details ->'
     recipeLink.href = `./recipe.html?id=${recipe.id}`
+    //Price
+    const recipePrice = document.createElement('p')
+    recipePrice.innerText = `$${recipe.price}`
     //Change bakcground and link color by veggie type
     if (recipe.vegan) {
       recipeLink.style.backgroundColor = '#cd82fca6'
@@ -143,15 +148,23 @@ function generateCards(recipes, filter) {
     addButton.innerText = 'Add 1'
     addButton.setAttribute('id', `add-${recipe.id}`)
     addButton.addEventListener('click', (event) => updateNumber(event))
+
+    const cardInfos = document.createElement('div')
+    cardInfos.setAttribute('class', 'card-infos')
+    const cardBottom = document.createElement('div')
+    cardBottom.setAttribute('class', 'card-bottom')
     //Append to HTML
     cardWrapper.appendChild(recipeCard)
     recipeCard.appendChild(recipePicture)
     recipeCard.appendChild(recipeName)
-    recipeCard.appendChild(recipeType)
-    recipeCard.appendChild(recipeLink)
-    recipeCard.appendChild(orderOptions)
-    orderOptions.appendChild(removeButton)
+    recipeCard.appendChild(cardBottom)
+    cardBottom.appendChild(cardInfos)
+    cardInfos.appendChild(recipeType)
+    cardInfos.appendChild(recipePrice)
+    cardInfos.appendChild(recipeLink)
+    cardBottom.appendChild(orderOptions)
     orderOptions.appendChild(orderNumber)
+    orderOptions.appendChild(removeButton)
     orderOptions.appendChild(addButton)
   }
 }
