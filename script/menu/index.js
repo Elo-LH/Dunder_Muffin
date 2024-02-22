@@ -43,9 +43,7 @@ function setNumber(id, orders, operand) {
   }
 }
 
-function updateOrder(event) {
-  console.log(event)
-  console.log(event.target.id)
+function updateNumber(event) {
   let buttonId = event.target.id
   const id = buttonId.split('-')[1]
   console.log(id)
@@ -53,16 +51,30 @@ function updateOrder(event) {
   let orders = getLocalOrder()
   let order = orders.find((order) => order.id == id)
   if (buttonId.charAt(0) == 'r') {
-    order.number > 0 && order.number--
+    if (!order) {
+      updateLocalOrder(orders)
+      return
+    } else if (order.number == 1) {
+      const orderIndex = orders.indexOf(order)
+      order = orders.splice(orderIndex, 1)
+      let orderNumber = document.getElementById(`number-${id}`)
+      orderNumber.innerText = `Number 0`
+      updateLocalOrder(orders)
+      return
+    } else {
+      order.number > 0 && order.number--
+    }
   } else {
     if (!order) {
       order = orders.push({ id: id, recipe: selectedRecipe, number: 1 })
+      order = orders.find((order) => order.id == id)
     } else {
       setNumber(id, orders, '+')
     }
   }
+  let orderNumber = document.getElementById(`number-${id}`)
+  orderNumber.innerText = `Number ${order.number}`
   updateLocalOrder(orders)
-  filterRecipes(orders)
 }
 
 function generateCards(recipes, filter) {
@@ -121,15 +133,16 @@ function generateCards(recipes, filter) {
     } else {
       orderNumber.innerText = `Number ${order.number}`
     }
-    orderNumber.setAttribute('id', 'order-number')
+    orderNumber.setAttribute('id', `number-${recipe.id}`)
     const removeButton = document.createElement('button')
-    removeButton.addEventListener('click', (event) => updateOrder(event))
+    console.log('Entered updateNumber')
+    removeButton.addEventListener('click', (event) => updateNumber(event))
     removeButton.innerText = 'Remove 1'
     removeButton.setAttribute('id', `remove-${recipe.id}`)
     const addButton = document.createElement('button')
     addButton.innerText = 'Add 1'
     addButton.setAttribute('id', `add-${recipe.id}`)
-    addButton.addEventListener('click', (event) => updateOrder(event))
+    addButton.addEventListener('click', (event) => updateNumber(event))
     //Append to HTML
     cardWrapper.appendChild(recipeCard)
     recipeCard.appendChild(recipePicture)
@@ -172,7 +185,6 @@ function filterRecipes() {
   cardWrapper.innerHTML = ''
   let select = document.querySelector('select')
   filter = select.value
-  console.log(recipes)
   generateCards(recipes, filter)
   rotateCards()
   let selectedOption = select.selectedIndex
