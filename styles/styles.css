@@ -249,6 +249,7 @@ option {
 }
 .order-options p {
   width: 33px;
+  font-size: 30px;
 }
 .order-options button {
   width: fit-content;

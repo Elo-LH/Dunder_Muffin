@@ -46,7 +46,7 @@ function setNumber(id, orders, operand) {
 function updateNumber(event) {
   let buttonId = event.target.id
   const id = buttonId.split('-')[1]
-  console.log(id)
+  console.log(`id of button is ${id}`)
   const selectedRecipe = recipes.find((recipe) => recipe.id == id)
   let orders = getLocalOrder()
   let order = orders.find((order) => order.id == id)
@@ -141,20 +141,18 @@ function generateCards(recipes, filter) {
       orderNumber.innerText = order.number
     }
     orderNumber.setAttribute('id', `number-${recipe.id}`)
-    const removeButton = document.createElement('button')
-    console.log('Entered updateNumber')
-    removeButton.addEventListener('click', (event) => updateNumber(event))
-    removeButton.setAttribute('id', `remove-${recipe.id}`)
+    //RemoveLogo
     const removeLogo = document.createElement('img')
     removeLogo.src = './assets/remove-icon.svg'
     removeLogo.alt = 'remove 1 from basket'
-
-    const addButton = document.createElement('button')
-    addButton.setAttribute('id', `add-${recipe.id}`)
-    addButton.addEventListener('click', (event) => updateNumber(event))
+    removeLogo.addEventListener('click', (event) => updateNumber(event))
+    removeLogo.setAttribute('id', `remove-${recipe.id}`)
+    //AddLogo
     const addLogo = document.createElement('img')
     addLogo.src = './assets/add-icon.svg'
     addLogo.alt = 'add 1 to basket'
+    addLogo.setAttribute('id', `add-${recipe.id}`)
+    addLogo.addEventListener('click', (event) => updateNumber(event))
 
     const cardInfos = document.createElement('div')
     cardInfos.setAttribute('class', 'card-infos')
@@ -172,10 +170,8 @@ function generateCards(recipes, filter) {
     cardBottom.appendChild(orderOptions)
     orderOptions.appendChild(orderBasketImg)
     orderOptions.appendChild(orderNumber)
-    orderOptions.appendChild(removeButton)
-    removeButton.appendChild(removeLogo)
-    orderOptions.appendChild(addButton)
-    addButton.appendChild(addLogo)
+    orderOptions.appendChild(removeLogo)
+    orderOptions.appendChild(addLogo)
   }
 }
 
