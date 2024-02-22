@@ -54,8 +54,16 @@ function updateNumber(event) {
     if (!order) {
       updateLocalOrder(orders)
       return
+    } else if (order.number == 1) {
+      const orderIndex = orders.indexOf(order)
+      order = orders.splice(orderIndex, 1)
+      let orderNumber = document.getElementById(`number-${id}`)
+      orderNumber.innerText = `Number 0`
+      updateLocalOrder(orders)
+      return
+    } else {
+      order.number > 0 && order.number--
     }
-    order.number > 0 && order.number--
   } else {
     if (!order) {
       order = orders.push({ id: id, recipe: selectedRecipe, number: 1 })
