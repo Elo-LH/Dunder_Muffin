@@ -145,8 +145,15 @@ nav li:active{
   background-color: #fdff8a;
   width: fit-content;
   border-radius: 80% 20% 72% 28% / 20% 63% 37% 80%;
-  transition: transform 200ms ease-in, filter 100ms ease-in-out,
-    font-weight 300ms ease-in-out;
+  transition: background-color 400ms ease-in,
+              font-weight 300ms ease-in-out;
+}
+.home a:hover{
+  background-color: #fcff51;
+  font-weight: 600;
+}
+.home a:active{
+  background: #fdff8a;
 }
 .home img {
   width: 50%;
@@ -440,11 +447,11 @@ option {
   }
 }
 
-.basket-wrapper img:nth-last-child(-n+2){
+.order-options img:nth-last-child(-n+2){
   cursor: pointer;
 }
 
-.basket-wrapper img:nth-last-child(-n+2):active{
+.order-options img:nth-last-child(-n+2):active{
   transform: scale(1.1);
 }
 
