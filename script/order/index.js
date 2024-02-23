@@ -36,6 +36,7 @@ function setNumber(id, orders, operand) {
 const reponse = await fetch('./data/recipes.json')
 const recipes = await reponse.json()
 let ordersWrapper = document.querySelector('.orders-wrapper')
+let validOrder = document.querySelector('.valid-order')
 // if no order if basket show empty basket message
 let emptyOrders = document.createElement('h2')
 emptyOrders.innerText = 'Your have no current order, go to menu to add some !'
@@ -69,6 +70,7 @@ function updateNumber(event) {
 
 function generateBasket(orders) {
   ordersWrapper.innerHTML = ''
+  validOrder.innerHTML = ''
   console.log('Entered generate basket')
   console.log(orders)
   //Generate order cards
@@ -171,17 +173,17 @@ function generateValidOrder(orders) {
   total.innerText = `Your order contains ${totalItems} items for a total of $${
     Math.round(totalPrice * 100) / 100
   }`
-  ordersWrapper.appendChild(total)
+  validOrder.appendChild(total)
   const sendButton = document.createElement('button')
   //add event listener on sending order button
   sendButton.addEventListener('click', sendOrder)
   sendButton.innerText = 'Validate order'
-  ordersWrapper.appendChild(sendButton)
+  validOrder.appendChild(sendButton)
   const resetButton = document.createElement('button')
   //add event listener on reset order button
   resetButton.addEventListener('click', deleteOrder)
   resetButton.innerText = 'Delete order'
-  ordersWrapper.appendChild(resetButton)
+  validOrder.appendChild(resetButton)
 }
 
 function updateNumbers() {
