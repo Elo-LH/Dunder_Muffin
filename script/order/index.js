@@ -170,9 +170,9 @@ function generateValidOrder(orders) {
     totalPrice += order.recipe.price * order.number
   }
   const total = document.createElement('p')
-  total.innerText = `Your order contains ${totalItems} items for a total of $${
+  total.innerHTML = `Your order contains <span class="valid-order__bold"> ${totalItems} items</span> for a total of <span class="valid-order__bold">$${
     Math.round(totalPrice * 100) / 100
-  }`
+  }</span>`
   validOrder.appendChild(total)
   const sendButton = document.createElement('button')
   //add event listener on sending order button
