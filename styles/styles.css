@@ -118,20 +118,18 @@ nav ul li a {
   font-family: 'Fira Code', monospace;
 }
 .home h1 {
-  font-size: 64px;
+  font-size: max(64px, 5vw);
   width: 70%;
-}
-@media screen and (max-width: 900px) {
-  .home h1 {
+  margin-bottom: 0;
+  @media screen and (max-width: 900px) {
     font-size: 48px;
     width: 90%;
   }
+  @media screen and (max-width: 600px) {
+    font-size: 34px;
+  }
 }
-.home > p {
-  font-size: 30px;
-  width: 70%;
-  font-style: italic;
-}
+
 .home a {
   padding: 5px;
   margin-bottom: 15px;
@@ -164,6 +162,9 @@ nav ul li a {
   flex-direction: column;
   margin-top: 100px;
   align-items: center;
+  @media screen and (max-width: 600px) {
+    margin-top: 60px;
+  }
 }
 .home h2 {
   padding: 20px;
@@ -172,11 +173,13 @@ nav ul li a {
   margin: 20px 0;
   width: fit-content;
   transform: rotate(5deg);
+  font-size: max(1.6rem, 1.6vw);
 }
 .home h3 {
   font-family: 'Rubik';
   font-size: 25px;
   width: fit-content;
+  font-size: max(1.6rem, 1.6vw);
 }
 .new-recipe {
   display: flex;
@@ -191,6 +194,20 @@ nav ul li a {
 #mayonnaise {
   margin-top: 100px;
   margin-bottom: 60px;
+}
+.home p,
+.home a {
+  font-size: max(1rem, 1.2vw);
+}
+.home > p,
+.home > p a {
+  font-size: 30px;
+  width: 70%;
+  font-style: italic;
+  @media screen and (max-width: 600px) {
+    font-size: 20px;
+    margin-top: 0;
+  }
 }
 
 /* ----------------- Menu page ----------------- */
