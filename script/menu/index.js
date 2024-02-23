@@ -46,7 +46,7 @@ function setNumber(id, orders, operand) {
 function updateNumber(event) {
   let buttonId = event.target.id
   const id = buttonId.split('-')[1]
-  console.log(id)
+  console.log(`id of button is ${id}`)
   const selectedRecipe = recipes.find((recipe) => recipe.id == id)
   let orders = getLocalOrder()
   let order = orders.find((order) => order.id == id)
@@ -58,7 +58,7 @@ function updateNumber(event) {
       const orderIndex = orders.indexOf(order)
       order = orders.splice(orderIndex, 1)
       let orderNumber = document.getElementById(`number-${id}`)
-      orderNumber.innerText = `Number 0`
+      orderNumber.innerText = '0'
       updateLocalOrder(orders)
       return
     } else {
@@ -73,7 +73,7 @@ function updateNumber(event) {
     }
   }
   let orderNumber = document.getElementById(`number-${id}`)
-  orderNumber.innerText = `Number ${order.number}`
+  orderNumber.innerText = `${order.number}`
   updateLocalOrder(orders)
 }
 
@@ -102,57 +102,81 @@ function generateCards(recipes, filter) {
     const recipeName = document.createElement('h2')
     recipeName.innerText = recipe.name
     const recipeType = document.createElement('p')
-    recipeType.innerText = recipe.type
+    //put first letter in caps
+    let majType = recipe.type.charAt(0).toUpperCase() + recipe.type.slice(1)
+    recipeType.innerText = majType
     // adding veggie badges to recipe description
     recipeType.innerText += recipe.vegan
-      ? '(🌱Vegan)'
+      ? ' - 🌱Vegan'
       : recipe.vegetarian
-      ? '(🐥Vegetarian)'
+      ? ' - 🐥Vegetarian'
       : ''
     //Link to detailed recipe page
     const recipeLink = document.createElement('a')
     recipeLink.innerText = 'See details ->'
     recipeLink.href = `./recipe.html?id=${recipe.id}`
+    //Price
+    const recipePrice = document.createElement('p')
+    recipePrice.innerText = `$${recipe.price}`
+
+    //Order buttons
+    const orderOptions = document.createElement('div')
+    orderOptions.setAttribute('class', 'order-options')
+    const orderBasketImg = document.createElement('img')
+    orderBasketImg.src = './assets/basket-icon.svg'
+    const orderNumber = document.createElement('p')
+    let order = orders.find((order) => order.id == recipe.id)
+    if (!order) {
+      orderNumber.innerText = '0'
+    } else {
+      orderNumber.innerText = order.number
+    }
+    orderNumber.setAttribute('id', `number-${recipe.id}`)
+    //RemoveLogo
+    const removeLogo = document.createElement('img')
+    removeLogo.src = './assets/remove-icon.svg'
+    removeLogo.alt = 'remove 1 from basket'
+    removeLogo.addEventListener('click', (event) => updateNumber(event))
+    removeLogo.setAttribute('id', `remove-${recipe.id}`)
+    //AddLogo
+    const addLogo = document.createElement('img')
+    addLogo.src = './assets/add-icon.svg'
+    addLogo.alt = 'add 1 to basket'
+    addLogo.setAttribute('id', `add-${recipe.id}`)
+    addLogo.addEventListener('click', (event) => updateNumber(event))
+
+    //Set wrappers
+    const cardInfos = document.createElement('div')
+    cardInfos.setAttribute('class', 'card-infos')
+    const cardBottom = document.createElement('div')
+    cardBottom.setAttribute('class', 'card-bottom')
+
     //Change bakcground and link color by veggie type
     if (recipe.vegan) {
       recipeLink.style.backgroundColor = '#cd82fca6'
       recipeLink.style.borderRadius = '80% 20% 81% 19% / 9% 87% 13% 91%'
       recipeCard.style.backgroundColor = '#5eacf5'
+      orderOptions.style.backgroundColor = '#cd82fca6'
     } else if (recipe.vegetarian) {
       recipeLink.style.backgroundColor = '#fdff8a9d'
       recipeLink.style.borderRadius = '80% 20% 81% 19% / 20% 25% 75% 80%'
       recipeCard.style.backgroundColor = '#cd82fc'
+      orderOptions.style.backgroundColor = '#fdff8a9d'
     }
-    //Order buttons
-    const orderOptions = document.createElement('div')
-    orderOptions.setAttribute('class', 'order-options')
-    const orderNumber = document.createElement('p')
-    let order = orders.find((order) => order.id == recipe.id)
-    if (!order) {
-      orderNumber.innerText = `Number 0`
-    } else {
-      orderNumber.innerText = `Number ${order.number}`
-    }
-    orderNumber.setAttribute('id', `number-${recipe.id}`)
-    const removeButton = document.createElement('button')
-    console.log('Entered updateNumber')
-    removeButton.addEventListener('click', (event) => updateNumber(event))
-    removeButton.innerText = 'Remove 1'
-    removeButton.setAttribute('id', `remove-${recipe.id}`)
-    const addButton = document.createElement('button')
-    addButton.innerText = 'Add 1'
-    addButton.setAttribute('id', `add-${recipe.id}`)
-    addButton.addEventListener('click', (event) => updateNumber(event))
     //Append to HTML
     cardWrapper.appendChild(recipeCard)
     recipeCard.appendChild(recipePicture)
     recipeCard.appendChild(recipeName)
-    recipeCard.appendChild(recipeType)
-    recipeCard.appendChild(recipeLink)
-    recipeCard.appendChild(orderOptions)
-    orderOptions.appendChild(removeButton)
+    recipeCard.appendChild(cardBottom)
+    cardBottom.appendChild(cardInfos)
+    cardInfos.appendChild(recipeType)
+    cardInfos.appendChild(recipePrice)
+    cardInfos.appendChild(recipeLink)
+    cardBottom.appendChild(orderOptions)
+    orderOptions.appendChild(orderBasketImg)
     orderOptions.appendChild(orderNumber)
-    orderOptions.appendChild(addButton)
+    orderOptions.appendChild(removeLogo)
+    orderOptions.appendChild(addLogo)
   }
 }
 
