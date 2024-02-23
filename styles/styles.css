@@ -609,7 +609,11 @@ label p {
   width: fit-content;
   margin: 10px;
 }
-
+.valid-order__bold{
+  font-weight: 800;
+  text-decoration: underline;
+  text-decoration-thickness: 2px;
+}
 .valid-order button{
   cursor: pointer;
   margin:20px;
