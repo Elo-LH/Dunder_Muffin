@@ -317,6 +317,7 @@ option {
   font-weight: 600;
   filter: contrast(200%);
 }
+
 @media screen and (max-width: 900px) {
   .recipe-wrapper div {
     width: 300px;
@@ -334,6 +335,14 @@ option {
     margin-top: 10px;
     align-self: start;
   }
+}
+
+.order-options img:nth-last-child(-n+2){
+  cursor: pointer;
+}
+
+.order-options img:nth-last-child(-n+2):active{
+  transform: scale(1.1);
 }
 
 /* ----------------- Contact Page ----------------- */
@@ -425,6 +434,8 @@ label p {
   border: 2px dashed #00000040;
 }
 .contact button {
+  width: 200px;
+  height: 60px;
   margin: 20px 0px;
   align-self: center;
   padding: 10px 20px;
@@ -503,6 +514,44 @@ label p {
   background-color: #5eacf593;
   margin: auto;
   border-radius: 80% 20% 72% 28% / 20% 63% 37% 80%;
+}
+.order-card button{
+  cursor: pointer;
+}
+.order-card button:active{
+  transform: scale(1.1);
+}
+
+/* Orders total */
+
+.orders-total button{
+  cursor: pointer;
+  margin:20px;
+  width: 200px;
+  height: 60px;
+  border: none;
+  font-family: 'Fira Code', monospace;
+  font-size: 1em;
+  border-radius: 5px;
+  box-shadow: 4px 8px 4px #00000040;
+  transition: background-size 500ms ease-in-out, transform 300ms ease-in,
+    box-shadow 300ms ease-in;
+}
+
+.orders-total button:first-of-type{
+  background: linear-gradient(to right, #fdff8a 5%, #fff 1% 100%);
+  background-size: 100%;
+}
+
+.orders-total button:last-of-type{
+  background: linear-gradient(to right, #FF9494 5%, #fff 1% 100%);
+  background-size: 100%;
+}
+
+.orders-total button:hover{
+  background-size: 2000%;
+  transform: translate(-5px, -5px);
+  box-shadow: 9px 13px 9px #00000040;
 }
 
 /* ----------------- Footer ----------------- */

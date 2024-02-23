@@ -121,6 +121,9 @@ function generateBasket(orders) {
 }
 
 function generateValidOrder(orders) {
+  const ordersTotal = document.createElement('div')
+  ordersTotal.setAttribute('class', 'orders-total')
+  ordersWrapper.appendChild(ordersTotal)
   let totalItems = 0
   let totalPrice = 0
   for (let order of orders) {
@@ -131,17 +134,17 @@ function generateValidOrder(orders) {
   total.innerText = `Your order contains ${totalItems} items for a total of $${Math.floor(
     totalPrice
   )}`
-  ordersWrapper.appendChild(total)
+  ordersTotal.appendChild(total)
   const sendButton = document.createElement('button')
   //add event listener on sending order button
   sendButton.addEventListener('click', sendOrder)
   sendButton.innerText = 'Validate order'
-  ordersWrapper.appendChild(sendButton)
+  ordersTotal.appendChild(sendButton)
   const resetButton = document.createElement('button')
   //add event listener on reset order button
   resetButton.addEventListener('click', deleteOrder)
   resetButton.innerText = 'Delete order'
-  ordersWrapper.appendChild(resetButton)
+  ordersTotal.appendChild(resetButton)
 }
 
 function updateOrders() {
