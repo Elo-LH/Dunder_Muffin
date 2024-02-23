@@ -6,7 +6,7 @@ function copyAdress() {
 
   // Alert the copied text
   console.log(copyMessage)
-  copyMessage.style.display = ''
+  copyMessage.style.display = 'block'
   setTimeout(() => {
     copyMessage.style.display = 'none'
   }, 2000)
