@@ -115,9 +115,9 @@ nav ul li a {
   display: flex;
   flex-direction: column;
   align-items: center;
+  font-family: 'Fira Code', monospace;
 }
 .home h1 {
-  font-family: 'Fira Code', monospace;
   font-size: 64px;
   width: 70%;
 }
@@ -127,14 +127,12 @@ nav ul li a {
     width: 90%;
   }
 }
-.home p {
-  font-family: 'Fira Code', monospace;
+.home > p {
   font-size: 30px;
   width: 70%;
   font-style: italic;
 }
 .home a {
-  font-family: 'Fira Code', monospace;
   padding: 5px;
   margin-bottom: 15px;
   text-decoration: none;
@@ -144,6 +142,55 @@ nav ul li a {
   border-radius: 80% 20% 72% 28% / 20% 63% 37% 80%;
   transition: transform 200ms ease-in, filter 100ms ease-in-out,
     font-weight 300ms ease-in-out;
+}
+.home img {
+  width: 50%;
+  @media screen and (max-width: 600px) {
+    width: 90%;
+  }
+}
+.content-wrapper {
+  width: 90%;
+  display: flex;
+  flex-direction: row;
+  @media screen and (max-width: 600px) {
+    flex-direction: column;
+    gap: 15px;
+    align-items: center;
+  }
+}
+.recipe-of-the-week {
+  display: flex;
+  flex-direction: column;
+  margin-top: 100px;
+  align-items: center;
+}
+.home h2 {
+  padding: 20px;
+  background-color: #5eacf5;
+  box-shadow: 4px 8px 4px #00000040;
+  margin: 20px 0;
+  width: fit-content;
+  transform: rotate(5deg);
+}
+.home h3 {
+  font-family: 'Rubik';
+  font-size: 25px;
+  width: fit-content;
+}
+.new-recipe {
+  display: flex;
+  flex-direction: column;
+  margin-top: 100px;
+  align-items: center;
+}
+.new-recipe h2 {
+  background-color: #cd82fc;
+  transform: rotate(-4deg);
+}
+#mayonnaise {
+  margin-top: 100px;
+  margin-bottom: 60px;
 }
 
 /* ----------------- Menu page ----------------- */
