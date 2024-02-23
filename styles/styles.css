@@ -92,7 +92,7 @@ nav ul li a {
 }
 
 nav li:active{
-  transform: scale(1.1);
+  transform: scale(0.9);
 }
 
 @media screen and (max-width: 900px) {
@@ -187,7 +187,7 @@ select:hover {
   font-weight: 800;
 }
 select:active{
-  transform: scale(1.05);
+  transform: scale(0.95);
 }
 option {
   font-size: 1.1em;
@@ -358,11 +358,11 @@ option {
   }
 }
 
-.order-options img:nth-last-child(-n+2){
+.basket-wrapper img:nth-last-child(-n+2){
   cursor: pointer;
 }
 
-.order-options img:nth-last-child(-n+2):active{
+.basket-wrapper img:nth-last-child(-n+2):active{
   transform: scale(1.1);
 }
 
