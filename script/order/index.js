@@ -192,6 +192,7 @@ function updateNumbers() {
   console.log('Entered updateNumbers')
   if (orders.length == 0) {
     ordersWrapper.innerHTML = ''
+    validOrder.innerHTML = ''
     ordersWrapper.appendChild(emptyOrders)
   } else {
     generateBasket(orders)
