@@ -552,7 +552,7 @@ label p {
 
 /* Orders total */
 
-.orders-total button{
+.valid-order button{
   cursor: pointer;
   margin:20px;
   width: 200px;
@@ -566,22 +566,22 @@ label p {
     box-shadow 300ms ease-in;
 }
 
-.orders-total button:first-of-type{
+.valid-order button:first-of-type{
   background: linear-gradient(to right, #fdff8a 5%, #fff 1% 100%);
   background-size: 100%;
 }
 
-.orders-total button:last-of-type{
+.valid-order button:last-of-type{
   background: linear-gradient(to right, #FF9494 5%, #fff 1% 100%);
   background-size: 100%;
 }
 
-.orders-total button:hover{
+.valid-order button:hover{
   background-size: 2000%;
   transform: translate(-5px, -5px);
   box-shadow: 9px 13px 9px #00000040;
 }
-.orders-total button:active{
+.valid-order button:active{
   transform: translate(5px, 5px);
   box-shadow: 4px 8px 4px #00000040;
 }
