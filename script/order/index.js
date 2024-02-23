@@ -74,10 +74,16 @@ function generateBasket(orders) {
   for (let order of orders) {
     const orderCard = document.createElement('div')
     orderCard.setAttribute('class', 'order-card')
+    const orderCardRecipe = document.createElement('div')
+    orderCardRecipe.setAttribute('class', 'order-card__recipe')
+    const orderCardTitlePrice = document.createElement('div')
+    orderCardTitlePrice.setAttribute('class', 'order-card__recipe-title-price')
     const recipePicture = document.createElement('img')
     recipePicture.src = order.recipe.picture
     const recipePrice = document.createElement('p')
     recipePrice.innerText = `Price $${order.recipe.price}`
+    const orderCardTotal = document.createElement('div')
+    orderCardTotal.setAttribute('class', 'order-card__total')
     const orderNumber = document.createElement('p')
     orderNumber.innerText = `Number ${order.number}`
     orderNumber.setAttribute('id', 'order-number')
@@ -110,13 +116,16 @@ function generateBasket(orders) {
 
     //Append to HTML
     ordersWrapper.appendChild(orderCard)
-    orderCard.appendChild(recipeLink)
-    orderCard.appendChild(recipePicture)
-    orderCard.appendChild(recipePrice)
-    orderCard.appendChild(removeButton)
-    orderCard.appendChild(orderNumber)
-    orderCard.appendChild(addButton)
-    orderCard.appendChild(orderTotal)
+    orderCard.appendChild(orderCardRecipe)
+    orderCardRecipe.appendChild(orderCardTitlePrice)
+    orderCardRecipe.appendChild(recipePicture)
+    orderCardTitlePrice.appendChild(recipeLink)
+    orderCardTitlePrice.appendChild(recipePrice)
+    orderCard.appendChild(orderCardTotal)
+    orderCardTotal.appendChild(removeButton)
+    orderCardTotal.appendChild(orderNumber)
+    orderCardTotal.appendChild(addButton)
+    orderCardTotal.appendChild(orderTotal)
   }
 }
 
