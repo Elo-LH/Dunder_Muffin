@@ -113,19 +113,37 @@ nav ul li a {
   background-size: cover;
   padding: 40px 0;
   display: flex;
-  justify-content: center;
+  flex-direction: column;
   align-items: center;
 }
-.home p {
+.home h1 {
   font-family: 'Fira Code', monospace;
   font-size: 64px;
   width: 70%;
 }
 @media screen and (max-width: 900px) {
-  .home p {
+  .home h1 {
     font-size: 48px;
     width: 90%;
   }
+}
+.home p {
+  font-family: 'Fira Code', monospace;
+  font-size: 30px;
+  width: 70%;
+  font-style: italic;
+}
+.home a {
+  font-family: 'Fira Code', monospace;
+  padding: 5px;
+  margin-bottom: 15px;
+  text-decoration: none;
+  color: #000;
+  background-color: #fdff8a;
+  width: fit-content;
+  border-radius: 80% 20% 72% 28% / 20% 63% 37% 80%;
+  transition: transform 200ms ease-in, filter 100ms ease-in-out,
+    font-weight 300ms ease-in-out;
 }
 
 /* ----------------- Menu page ----------------- */
