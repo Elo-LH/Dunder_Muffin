@@ -78,8 +78,8 @@ function generateBasket(orders) {
     const orderCard = document.createElement('div')
     orderCard.setAttribute('class', 'order-card')
     //set recipe infos div
-    const cardInfos = document.createElement('div')
-    cardInfos.setAttribute('class', 'card-infos')
+    const recipeInfos = document.createElement('div')
+    recipeInfos.setAttribute('class', 'recipe-infos')
     //set recipe picture
     const recipePicture = document.createElement('img')
     recipePicture.src = order.recipe.picture
@@ -95,7 +95,9 @@ function generateBasket(orders) {
 
     //set mini postit div order infos
     const orderOptions = document.createElement('div')
-    orderOptions.setAttribute('class', 'order-options')
+    orderOptions.setAttribute('class', 'mini-postit')
+    const basketWrapper = document.createElement('div')
+    basketWrapper.setAttribute('class', 'basket-wrapper')
     //Order buttons
     const orderBasketImg = document.createElement('img')
     orderBasketImg.src = './assets/basket-icon.svg'
@@ -144,15 +146,16 @@ function generateBasket(orders) {
 
     //Append to HTML
     ordersWrapper.appendChild(orderCard)
-    orderCard.appendChild(cardInfos)
+    orderCard.appendChild(recipeInfos)
     orderCard.appendChild(orderOptions)
-    cardInfos.appendChild(recipePicture)
-    cardInfos.appendChild(recipeName)
-    cardInfos.appendChild(recipePrice)
-    orderOptions.appendChild(orderBasketImg)
-    orderOptions.appendChild(orderNumber)
-    orderOptions.appendChild(removeLogo)
-    orderOptions.appendChild(addLogo)
+    recipeInfos.appendChild(recipePicture)
+    recipeInfos.appendChild(recipeName)
+    recipeInfos.appendChild(recipePrice)
+    orderOptions.appendChild(basketWrapper)
+    basketWrapper.appendChild(orderBasketImg)
+    basketWrapper.appendChild(orderNumber)
+    basketWrapper.appendChild(removeLogo)
+    basketWrapper.appendChild(addLogo)
     orderOptions.appendChild(orderSubtotal)
   }
 }
