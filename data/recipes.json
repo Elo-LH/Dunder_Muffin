@@ -78,5 +78,25 @@
         "vegetarian": true,
         "vegan": true,
         "picture": "./images/kelly-picture.jpg"
+    },
+    {
+        "id": 9,
+        "name": "Alfredo's fettuccine",
+        "description": "Fettuccine pasta, heavy cream, parmesan, butter and garlic.",
+        "price": 8.90,
+        "type":"hot dish",
+        "vegetarian": true,
+        "vegan": false,
+        "picture": "./images/fettuccine.jpg"
+    },
+    {
+        "id": 10,
+        "name": "Michael's Ice Cream",
+        "description": "Mayonnaise with black olives",
+        "price": 2.90,
+        "type":"snack",
+        "vegetarian": true,
+        "vegan": false,
+        "picture": "./images/ice-cream-recipe.jpg"
     }
 ]
