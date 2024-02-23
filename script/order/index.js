@@ -40,7 +40,7 @@ let ordersWrapper = document.querySelector('.orders-wrapper')
 let emptyOrders = document.createElement('h2')
 emptyOrders.innerText = 'Your have no current order, go to menu to add some !'
 
-function updateOrder(event) {
+function updateNumber(event) {
   console.log(event)
   console.log(event.target.id)
   let buttonId = event.target.id
@@ -64,68 +64,96 @@ function updateOrder(event) {
     }
   }
   updateLocalOrder(orders)
-  updateOrders()
+  updateNumbers()
 }
 
 function generateBasket(orders) {
   ordersWrapper.innerHTML = ''
   console.log('Entered generate basket')
+  console.log(orders)
   //Generate order cards
   for (let order of orders) {
+    console.log(order)
+    //set postit
     const orderCard = document.createElement('div')
     orderCard.setAttribute('class', 'order-card')
-    const orderCardRecipe = document.createElement('div')
-    orderCardRecipe.setAttribute('class', 'order-card__recipe')
-    const orderCardTitlePrice = document.createElement('div')
-    orderCardTitlePrice.setAttribute('class', 'order-card__recipe-title-price')
+    //set recipe infos div
+    const cardInfos = document.createElement('div')
+    cardInfos.setAttribute('class', 'card-infos')
+    //set recipe picture
     const recipePicture = document.createElement('img')
     recipePicture.src = order.recipe.picture
+    //set recipe title and price
+    const recipeName = document.createElement('h2')
+    recipeName.innerText = order.recipe.name
     const recipePrice = document.createElement('p')
     recipePrice.innerText = `Price $${order.recipe.price}`
-    const orderCardTotal = document.createElement('div')
-    orderCardTotal.setAttribute('class', 'order-card__total')
+    // const orderCardRecipe = document.createElement('div')
+    // orderCardRecipe.setAttribute('class', 'order-card__recipe')
+    // const orderCardTitlePrice = document.createElement('div')
+    // orderCardTitlePrice.setAttribute('class', 'order-card__recipe-title-price')
+
+    //set mini postit div order infos
+    const orderOptions = document.createElement('div')
+    orderOptions.setAttribute('class', 'order-options')
+    //Order buttons
+    const orderBasketImg = document.createElement('img')
+    orderBasketImg.src = './assets/basket-icon.svg'
     const orderNumber = document.createElement('p')
-    orderNumber.innerText = `Number ${order.number}`
-    orderNumber.setAttribute('id', 'order-number')
-    const removeButton = document.createElement('button')
-    removeButton.addEventListener('click', (event) => updateOrder(event))
-    removeButton.innerText = 'Remove 1'
-    removeButton.setAttribute('id', `remove-${order.id}`)
-    const addButton = document.createElement('button')
-    addButton.innerText = 'Add 1'
-    addButton.setAttribute('id', `add-${order.id}`)
-    addButton.addEventListener('click', (event) => updateOrder(event))
-    const orderTotal = document.createElement('p')
-    orderTotal.innerHTML = `Subtotal $${Math.floor(
-      order.number * order.recipe.price
-    )}`
+    if (!order) {
+      orderNumber.innerText = '0'
+    } else {
+      orderNumber.innerText = order.number
+    }
+    orderNumber.setAttribute('id', `number-${order.recipe.id}`)
+    //RemoveLogo
+    const removeLogo = document.createElement('img')
+    removeLogo.src = './assets/remove-icon.svg'
+    removeLogo.alt = 'remove 1 from basket'
+    removeLogo.addEventListener('click', (event) => updateNumber(event))
+    removeLogo.setAttribute('id', `remove-${order.recipe.id}`)
+    //AddLogo
+    const addLogo = document.createElement('img')
+    addLogo.src = './assets/add-icon.svg'
+    addLogo.alt = 'add 1 to basket'
+    addLogo.setAttribute('id', `add-${order.recipe.id}`)
+    addLogo.addEventListener('click', (event) => updateNumber(event))
+    //set subtotal
+    const orderSubtotal = document.createElement('p')
+    orderSubtotal.innerHTML = `Subtotal $${
+      Math.round(order.number * order.recipe.price * 100) / 100
+    }`
+
     //Link to detailed recipe page
     const recipeLink = document.createElement('a')
     recipeLink.href = `./recipe.html?id=${order.recipe.id}`
     recipeLink.innerText = order.recipe.name
+
     //Change bakcground and link color by veggie type
     if (order.recipe.vegan) {
       recipeLink.style.backgroundColor = '#cd82fca6'
       recipeLink.style.borderRadius = '80% 20% 81% 19% / 9% 87% 13% 91%'
       orderCard.style.backgroundColor = '#5eacf5'
+      orderOptions.style.backgroundColor = '#cd82fca6'
     } else if (order.recipe.vegetarian) {
       recipeLink.style.backgroundColor = '#fdff8a9d'
       recipeLink.style.borderRadius = '80% 20% 81% 19% / 20% 25% 75% 80%'
       orderCard.style.backgroundColor = '#cd82fc'
+      orderOptions.style.backgroundColor = '#fdff8a9d'
     }
 
     //Append to HTML
     ordersWrapper.appendChild(orderCard)
-    orderCard.appendChild(orderCardRecipe)
-    orderCardRecipe.appendChild(orderCardTitlePrice)
-    orderCardRecipe.appendChild(recipePicture)
-    orderCardTitlePrice.appendChild(recipeLink)
-    orderCardTitlePrice.appendChild(recipePrice)
-    orderCard.appendChild(orderCardTotal)
-    orderCardTotal.appendChild(removeButton)
-    orderCardTotal.appendChild(orderNumber)
-    orderCardTotal.appendChild(addButton)
-    orderCardTotal.appendChild(orderTotal)
+    orderCard.appendChild(cardInfos)
+    orderCard.appendChild(orderOptions)
+    cardInfos.appendChild(recipePicture)
+    cardInfos.appendChild(recipeName)
+    cardInfos.appendChild(recipePrice)
+    orderOptions.appendChild(orderBasketImg)
+    orderOptions.appendChild(orderNumber)
+    orderOptions.appendChild(removeLogo)
+    orderOptions.appendChild(addLogo)
+    orderOptions.appendChild(orderSubtotal)
   }
 }
 
@@ -137,9 +165,9 @@ function generateValidOrder(orders) {
     totalPrice += order.recipe.price * order.number
   }
   const total = document.createElement('p')
-  total.innerText = `Your order contains ${totalItems} items for a total of $${Math.floor(
-    totalPrice
-  )}`
+  total.innerText = `Your order contains ${totalItems} items for a total of $${
+    Math.round(totalPrice * 100) / 100
+  }`
   ordersWrapper.appendChild(total)
   const sendButton = document.createElement('button')
   //add event listener on sending order button
@@ -153,10 +181,10 @@ function generateValidOrder(orders) {
   ordersWrapper.appendChild(resetButton)
 }
 
-function updateOrders() {
+function updateNumbers() {
   //get orders from local storage
   let orders = getLocalOrder()
-  console.log('Entered updateOrders')
+  console.log('Entered updateNumbers')
   if (orders.length == 0) {
     ordersWrapper.innerHTML = ''
     ordersWrapper.appendChild(emptyOrders)
@@ -172,7 +200,7 @@ function sendOrder() {
   alert(
     'Your order has been successfully send to us ! Thank you for your trust, see you soon.'
   )
-  updateOrders()
+  updateNumbers()
 }
 function deleteOrder() {
   let orders_json = JSON.stringify([])
@@ -180,10 +208,10 @@ function deleteOrder() {
   alert(
     'Your pre-order has been successfully deleted. Please contact us if you have any trouble on this site'
   )
-  updateOrders()
+  updateNumbers()
 }
 
-updateOrders()
+updateNumbers()
 
 // choose a name and date for the command in popup ?
 // reset basket when sending order
