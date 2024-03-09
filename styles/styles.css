@@ -3,32 +3,27 @@ html,
 body {
   margin: 0;
   padding: 0;
-  width: 100%;
-  height: 100%;
   display: flex;
   min-height: 100vh;
   flex-direction: column;
 }
 
+/* Scrollbar */
 body {
   scrollbar-width: 5px;
   scrollbar-color: #000 #969696;
 }
-
 * {
   scrollbar-width: thin;
   scrollbar-color: #0000009a #969696;
 }
-
 ::-webkit-scrollbar-track {
   background: #969696;
 }
-
 ::-webkit-scrollbar-thumb {
   background-color: #0000009a;
   border-radius: 5em;
 }
-
 ::-webkit-scrollbar {
   width: 5px;
   background: transparent;
@@ -43,12 +38,9 @@ h1 {
 
 header {
   width: 80%;
-  margin: 15px auto 20px auto;
+  margin: 0 auto;
   display: flex;
   align-items: baseline;
-}
-.logo-link {
-  display: flex;
 }
 header img {
   width: 160px;
@@ -71,8 +63,8 @@ ul {
 }
 nav ul li a {
   font-family: 'Rubik', sans-serif;
-  font-size: 32px;
-  margin: 5px 20px;
+  font-size: 2rem;
+  margin: 0.3rem 1.2rem;
   font-weight: bold;
   color: #000;
   text-decoration: none;
@@ -82,15 +74,12 @@ nav ul li a {
   background-size: auto 200%;
   transition: all 300ms ease-in-out;
 }
-
 .header-unactive:hover {
   background-position-y: 100%;
 }
-
 .header-active {
   background: #f7fc00;
 }
-
 nav li:active {
   transform: scale(0.9);
 }
@@ -98,17 +87,14 @@ nav li:active {
 @media screen and (max-width: 900px) {
   header {
     align-items: center;
-    margin: 0px auto;
   }
   nav ul {
     flex-direction: column;
+    padding-left: 1rem;
   }
   nav ul li a {
     flex-direction: column;
-    font-size: 24px;
-  }
-  .logo-link {
-    width: 110px;
+    font-size: 1.5rem;
   }
 }
 
@@ -118,87 +104,106 @@ nav li:active {
   flex: 1;
   background-image: url('../images/texture.jpg');
   background-size: cover;
-  padding: 40px 0;
+  padding-top: 8rem;
+  @media screen and (max-width: 900px) {
+    padding-top: 5rem;
+  }
   display: flex;
   flex-direction: column;
   align-items: center;
   font-family: 'Fira Code', monospace;
 }
 .home h1 {
-  font-size: max(64px, 5vw);
-  width: 70%;
-  margin-bottom: 0;
+  font-size: max(4rem, 5vw);
+  max-width: 18ch;
+  margin: 0;
   @media screen and (max-width: 900px) {
-    font-size: 48px;
-    width: 90%;
+    font-size: 3rem;
   }
   @media screen and (max-width: 600px) {
-    font-size: 34px;
+    font-size: 2.2rem;
+    padding: 0 0.4rem;
+  }
+}
+.home-subtitle {
+  font-size: 1.8rem;
+  font-style: italic;
+  @media screen and (max-width: 900px) {
+    max-width: 40ch;
+    line-height: 1.8rem;
+  }
+  @media screen and (max-width: 600px) {
+    max-width: 34ch;
+    line-height: 1.8rem;
+    padding: 0 0.4em;
   }
 }
 
 .home a {
-  padding: 5px;
-  margin-bottom: 15px;
+  padding: 0.2rem;
+  margin-bottom: 0.6rem;
   text-decoration: none;
   color: #000;
   background-color: #fdff8a;
-  width: fit-content;
   border-radius: 80% 20% 72% 28% / 20% 63% 37% 80%;
-  transition: background-color 400ms ease-in,
-              font-weight 300ms ease-in-out;
+  transition: background-color 400ms ease-in, font-weight 300ms ease-in-out;
 }
-.home a:hover{
+.home a:hover {
   background-color: #fcff51;
   font-weight: 600;
 }
-.home a:active{
+.home a:active {
   background: #fdff8a;
 }
-.home img {
+.content-wrapper img {
   width: 50%;
-  @media screen and (max-width: 600px) {
-    width: 90%;
+  margin-left: 1rem;
+  @media screen and (max-width: 900px) {
+    max-width: 90%;
   }
 }
 .content-wrapper {
   width: 90%;
   display: flex;
   flex-direction: row;
+  justify-content: center;
   @media screen and (max-width: 600px) {
     flex-direction: column;
-    gap: 15px;
+    gap: 1rem;
     align-items: center;
   }
+}
+.content-wrapper p {
+  margin: 0;
+  max-width: 45ch;
 }
 .recipe-of-the-week {
   display: flex;
   flex-direction: column;
-  margin-top: 100px;
+  margin-top: 5rem;
   align-items: center;
   @media screen and (max-width: 600px) {
-    margin-top: 60px;
+    margin-top: 3rem;
   }
 }
 .home h2 {
-  padding: 20px;
+  padding: 1em;
   background-color: #5eacf5;
   box-shadow: 4px 8px 4px #00000040;
-  margin: 20px 0;
+  margin: 1rem 0;
   width: fit-content;
   transform: rotate(5deg);
-  font-size: max(1.6rem, 1.6vw);
+  font-size: clamp(1.2rem, 4vw, 1.6rem);
 }
 .home h3 {
   font-family: 'Rubik';
-  font-size: 25px;
   width: fit-content;
-  font-size: max(1.6rem, 1.6vw);
+  font-size: clamp(1.4rem, 4vw, 1.8rem);
 }
 .new-recipe {
   display: flex;
   flex-direction: column;
-  margin-top: 100px;
+  margin-top: 5rem;
   align-items: center;
 }
 .new-recipe h2 {
@@ -206,22 +211,14 @@ nav li:active {
   transform: rotate(-4deg);
 }
 #mayonnaise {
-  margin-top: 100px;
-  margin-bottom: 60px;
+  margin-top: 1rem;
+  margin-bottom: 5rem;
+  width: 90%;
+  max-width: 800px;
 }
 .home p,
 .home a {
-  font-size: max(1rem, 1.2vw);
-}
-.home > p,
-.home > p a {
-  font-size: 30px;
-  width: 70%;
-  font-style: italic;
-  @media screen and (max-width: 600px) {
-    font-size: 20px;
-    margin-top: 0;
-  }
+  font-size: clamp(1rem, 1.2vw, 1.5rem);
 }
 
 /* ----------------- Menu page ----------------- */
@@ -231,42 +228,44 @@ nav li:active {
   background-image: url('../images/texture.jpg');
   background-size: cover;
   font-family: 'Fira Code', monospace;
-  padding: 100px 0;
+  padding: 5rem 0;
 }
 
 .menu h1 {
   margin: 0 auto;
-  padding-bottom: 60px;
   text-align: center;
-  font-size: 2.5rem;
+  font-size: clamp(2rem, 4vw, 2.5rem);
   font-weight: bold;
 }
 .card-wrapper {
   margin: 0 auto;
-  padding: 40px 20px;
+  padding: 2.5rem 1.25rem;
   display: flex;
   justify-content: center;
   flex-wrap: wrap;
-  gap: 40px;
+  gap: 2.5rem;
 }
 #select-filter-form {
   text-align: center;
   width: fit-content;
-  margin: 30px auto;
+  margin: 2rem auto;
+  @media screen and (max-width: 860px) {
+    margin: 1rem auto;
+  }
 }
 label {
   display: flex;
   align-items: end;
 }
 select {
-  padding: 2px 10px;
+  padding: 2px 0.625rem;
   font-family: 'Fira Code', monospace;
   font-size: 1.1em;
   border: none;
   box-shadow: 10px 5px 5px #00000040;
   border-radius: 0%;
   background-color: #fff;
-  margin: 0 20px;
+  margin: 0 1.25rem;
   font-weight: 600;
   background-color: #b1b1b1;
   cursor: pointer;
@@ -281,7 +280,7 @@ select:active {
 option {
   font-size: 1.1em;
   font-weight: 400;
-  padding: 10px;
+  padding: 0.625rem;
 }
 
 .yellow-option {
@@ -296,7 +295,7 @@ option {
 
 /* Recipes cards */
 .recipe-card {
-  padding: 20px;
+  padding: 1.25rem;
   width: 350px;
   height: 350px;
   display: flex;
@@ -304,7 +303,7 @@ option {
   text-align: center;
   background-color: #fdff8a;
   box-shadow: 4px 8px 4px #00000040;
-  margin: 10px 0;
+  margin: 0.625rem 0;
 }
 
 .recipe-card > img {
@@ -314,22 +313,22 @@ option {
 
 .recipe-card h2 {
   margin: 0;
-  padding: 10px 0px;
+  padding: 0.625rem 0;
   height: 100px;
   font-family: 'Rubik', sans-serif;
   font-weight: bold;
 }
 .recipe-card p {
   margin: 0;
-  margin-bottom: 10px;
+  margin-bottom: 0.625rem;
 }
 .recipe-card a {
   font-family: 'Fira Code', monospace;
   padding: 5px;
-  margin-bottom: 15px;
+  margin-bottom: 0.625rem;
   text-decoration: none;
   color: #000;
-  font-size: 0.8rem;
+  font-size: 1rem;
   background-color: #5eacf593;
   width: fit-content;
   border-radius: 80% 20% 72% 28% / 20% 63% 37% 80%;
@@ -373,27 +372,27 @@ option {
   width: 30px;
 }
 .order-options p {
-  font-size: 20px;
+  font-size: 1.25rem;
 }
 
 /* Recipe details */
 .recipe-wrapper {
   display: flex;
   flex-direction: column;
+  justify-content: center;
 }
 .recipe-wrapper div {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   grid-template-rows: 2fr 2fr 1fr 1fr;
-  margin: 0 150px;
-  column-gap: 20px;
+  column-gap: 1.25rem;
 }
 .recipe-wrapper h1 {
   grid-column-start: 2;
   padding: 0;
   margin: 0;
   text-align: left;
-  font-size: 2rem;
+  font-size: clamp(2rem, 4vw, 2.2rem);
 }
 .recipe-wrapper img {
   width: 50%;
@@ -404,9 +403,12 @@ option {
 .recipe-wrapper p {
   padding: 0;
   margin: 0;
+  max-width: 45ch;
+  font-size: clamp(1rem, 3vw, 1.4rem);
 }
 .recipe-wrapper a {
   font-family: 'Fira Code', monospace;
+  font-size: clamp(1rem, 3vw, 1.4rem);
   text-decoration: none;
   color: #000;
   background-color: #fdff8a;
@@ -433,25 +435,25 @@ option {
     width: 300px;
     display: flex;
     flex-direction: column;
-    margin: 20px auto;
+    margin: 1.25rem auto;
   }
   .recipe-wrapper h1 {
-    margin-bottom: 20px;
+    margin-bottom: 1.25rem;
   }
   .recipe-wrapper p {
-    margin: 10px 0;
+    margin: 0.625rem 0;
   }
   .recipe-wrapper a {
-    margin-top: 10px;
+    margin-top: 0.625rem;
     align-self: start;
   }
 }
 
-.order-options img:nth-last-child(-n+2){
+.order-options img:nth-last-child(-n + 2) {
   cursor: pointer;
 }
 
-.order-options img:nth-last-child(-n+2):active{
+.order-options img:nth-last-child(-n + 2):active {
   transform: scale(1.1);
 }
 
@@ -464,13 +466,13 @@ option {
   display: flex;
   align-items: center;
   flex-direction: column;
-  padding: 0px 10px;
+  padding: 0 0.625rem;
   font-family: 'Fira Code', monospace;
 }
 .contact h1,
 h2 {
   margin: 0 auto;
-  padding: 40px 0px;
+  padding: 2.5rem 0;
   text-align: center;
 }
 .contact img {
@@ -478,7 +480,7 @@ h2 {
   max-width: 700px;
 }
 .contact-infos {
-  padding: 20px 0px;
+  padding: 1.25rem 0;
 }
 .contact p {
   font-size: 1rem;
@@ -487,7 +489,7 @@ h2 {
 }
 .contact-infos a {
   margin: 0;
-  margin-bottom: 10px;
+  margin-bottom: 0.625rem;
   text-decoration: none;
   color: #000;
   background: linear-gradient(transparent 50%, #5eacf5 50%);
@@ -509,17 +511,17 @@ h2 {
   flex-direction: row;
   flex-wrap: wrap;
   justify-content: space-around;
-  padding-bottom: 40px;
+  padding-bottom: 2.5rem;
 }
 label {
   display: flex;
 }
 label p {
-  padding-left: 10px;
+  padding-left: 0.625rem;
 }
 .form-card {
-  padding: 30px 20px;
-  margin: 20px 50px;
+  padding: 1.875rem 1.25rem;
+  margin: 1.25rem 3.125rem;
   background-color: #fdff8a;
   border: none;
   box-shadow: 4px 8px 4px #00000040;
@@ -534,7 +536,7 @@ label p {
   width: 250px;
 }
 .contact-form input {
-  margin-top: 10px;
+  margin-top: 0.625rem;
   height: 50px;
   background-color: #fdff8a;
   border: 2px dashed #00000040;
@@ -542,16 +544,16 @@ label p {
 
 .contact-form textarea {
   height: 200px;
-  margin: 10px;
+  margin: 0.625rem;
   background-color: #fdff8a;
   border: 2px dashed #00000040;
 }
 .contact button {
   width: 200px;
   height: 60px;
-  margin: 20px 0px;
+  margin: 1.25rem 0;
   align-self: center;
-  padding: 10px 20px;
+  padding: 0.625rem 1.25rem;
   border: none;
   border-radius: 5px;
   box-shadow: 4px 8px 4px #00000040;
@@ -583,25 +585,24 @@ label p {
   background-image: url('../images/texture.jpg');
   background-size: cover;
   font-family: 'Fira Code', monospace;
-  padding: 60px 0;
+  padding: 5rem 0;
 }
 
 .order h1 {
   margin: 0 auto;
-  padding-bottom: 20px;
   text-align: center;
-  font-size: 2.5rem;
+  font-size: clamp(2rem, 4vw, 2.5rem);
   font-weight: bold;
 }
 .orders-wrapper {
   margin: 0 auto;
-  padding: 40px 20px;
+  padding: 1.25rem 1.25rem;
   display: flex;
   justify-content: center;
   flex-wrap: wrap;
-  gap: 40px;
-  @media screen and (max-width: 400px) {
-    gap: 10px;
+  gap: 3rem;
+  @media screen and (max-width: 900px) {
+    gap: 0.1rem;
   }
 }
 /* Order cards */
@@ -613,7 +614,7 @@ label p {
   text-align: center;
   background-color: #fdff8a;
   box-shadow: 4px 8px 4px #00000040;
-  margin: 10px 0;
+  margin: 0.625rem 0;
   display: flex;
   flex-direction: column;
 }
@@ -629,7 +630,7 @@ label p {
 .recipe-infos img {
   width: 150px;
   float: inline-start;
-  margin-right: 10px;
+  margin-right: 0.625rem;
 }
 .recipe-infos p {
   text-align: left;
@@ -639,7 +640,7 @@ label p {
   margin: 0;
 }
 .recipe-infos h2 {
-  padding: 0px;
+  padding: 0;
   text-align: left;
   font-size: 22px;
 }
@@ -654,7 +655,7 @@ label p {
 .mini-postit {
   width: 80%;
   padding: 15px 15px;
-  margin: 15px 0px;
+  margin: 15px 0;
   display: flex;
   border-top: 8px solid #ffffff80;
   background-color: #5eacf593;
@@ -663,7 +664,7 @@ label p {
 }
 .mini-postit p {
   margin-bottom: 4px;
-  padding-left: 10px;
+  padding-left: 0.625rem;
   align-self: flex-end;
 }
 .basket-wrapper {
@@ -690,27 +691,28 @@ label p {
 /* Valid order */
 
 .valid-order {
-  width: fit-content;
-  margin: auto;
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
 }
 
 .valid-order p {
-  width: fit-content;
-  margin: 10px;
+  font-size: clamp(1.2rem, 3vw, 1.4rem);
+  line-height: 2rem;
+  margin: 0.75rem;
+  width: 100%;
+  text-align: center;
 }
 .valid-order__bold {
   font-weight: 800;
-  text-decoration: underline;
-  text-decoration-thickness: 2px;
 }
 .valid-order button {
   cursor: pointer;
-  margin: 20px;
-  width: 200px;
-  height: 60px;
+  margin: 1.25rem;
+  padding: 1em 1.5em;
   border: none;
   font-family: 'Fira Code', monospace;
-  font-size: 1em;
+  font-size: clamp(1rem, 3vw, 1.2rem);
   border-radius: 5px;
   box-shadow: 4px 8px 4px #00000040;
   transition: background-size 500ms ease-in-out, transform 300ms ease-in,
@@ -748,9 +750,9 @@ footer {
   flex-wrap: wrap;
   justify-content: space-between;
   box-sizing: border-box;
-  padding: 0 20px;
+  padding: 0 1.25rem;
   font-family: 'Rubik', sans-serif;
-  font-size: max(15px, 2vmin);
+  font-size: clamp(1rem, 3vw, 1.4rem);
 }
 footer div {
   display: flex;
@@ -758,7 +760,7 @@ footer div {
   justify-content: center;
 }
 .footer-contact {
-  padding: 10px;
+  padding: 0.75rem;
   min-width: 200px;
   cursor: pointer;
 }
@@ -790,10 +792,10 @@ footer a {
   align-items: center;
 }
 footer a {
-  padding: 10px;
+  padding: 0.75rem;
 }
 footer img {
-  height: max(max(2vw, 3vh), 30px);
+  height: clamp(30px, 5vw, 50px);
   transition: all 200ms ease-in;
 }
 footer img:hover {
@@ -808,8 +810,8 @@ footer .copy-message {
   width: 200px;
   background-color: #fdff8a;
   border-radius: 5px;
-  padding: 10px 5px;
-  font-size: 15px;
+  padding: 0.75rem 0.25rem;
+  font-size: 1rem;
   text-align: center;
 }
 footer .footer-contact:active {
