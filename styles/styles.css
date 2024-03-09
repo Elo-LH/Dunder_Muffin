@@ -585,25 +585,24 @@ label p {
   background-image: url('../images/texture.jpg');
   background-size: cover;
   font-family: 'Fira Code', monospace;
-  padding: 60px 0;
+  padding: 5rem 0;
 }
 
 .order h1 {
   margin: 0 auto;
-  padding-bottom: 20px;
   text-align: center;
-  font-size: 2.5rem;
+  font-size: clamp(2rem, 4vw, 2.5rem);
   font-weight: bold;
 }
 .orders-wrapper {
   margin: 0 auto;
-  padding: 40px 20px;
+  padding: 1.25rem 1.25rem;
   display: flex;
   justify-content: center;
   flex-wrap: wrap;
-  gap: 40px;
-  @media screen and (max-width: 400px) {
-    gap: 10px;
+  gap: 3rem;
+  @media screen and (max-width: 900px) {
+    gap: 0.1rem;
   }
 }
 /* Order cards */
@@ -615,7 +614,7 @@ label p {
   text-align: center;
   background-color: #fdff8a;
   box-shadow: 4px 8px 4px #00000040;
-  margin: 10px 0;
+  margin: 0.625rem 0;
   display: flex;
   flex-direction: column;
 }
@@ -631,7 +630,7 @@ label p {
 .recipe-infos img {
   width: 150px;
   float: inline-start;
-  margin-right: 10px;
+  margin-right: 0.625rem;
 }
 .recipe-infos p {
   text-align: left;
@@ -641,7 +640,7 @@ label p {
   margin: 0;
 }
 .recipe-infos h2 {
-  padding: 0px;
+  padding: 0;
   text-align: left;
   font-size: 22px;
 }
@@ -656,7 +655,7 @@ label p {
 .mini-postit {
   width: 80%;
   padding: 15px 15px;
-  margin: 15px 0px;
+  margin: 15px 0;
   display: flex;
   border-top: 8px solid #ffffff80;
   background-color: #5eacf593;
@@ -665,7 +664,7 @@ label p {
 }
 .mini-postit p {
   margin-bottom: 4px;
-  padding-left: 10px;
+  padding-left: 0.625rem;
   align-self: flex-end;
 }
 .basket-wrapper {
@@ -692,27 +691,28 @@ label p {
 /* Valid order */
 
 .valid-order {
-  width: fit-content;
-  margin: auto;
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
 }
 
 .valid-order p {
-  width: fit-content;
-  margin: 10px;
+  font-size: clamp(1.2rem, 3vw, 1.4rem);
+  line-height: 2rem;
+  margin: 0.75rem;
+  width: 100%;
+  text-align: center;
 }
 .valid-order__bold {
   font-weight: 800;
-  text-decoration: underline;
-  text-decoration-thickness: 2px;
 }
 .valid-order button {
   cursor: pointer;
-  margin: 20px;
-  width: 200px;
-  height: 60px;
+  margin: 1.25rem;
+  padding: 1em 1.5em;
   border: none;
   font-family: 'Fira Code', monospace;
-  font-size: 1em;
+  font-size: clamp(1rem, 3vw, 1.2rem);
   border-radius: 5px;
   box-shadow: 4px 8px 4px #00000040;
   transition: background-size 500ms ease-in-out, transform 300ms ease-in,
@@ -750,9 +750,9 @@ footer {
   flex-wrap: wrap;
   justify-content: space-between;
   box-sizing: border-box;
-  padding: 0 20px;
+  padding: 0 1.25rem;
   font-family: 'Rubik', sans-serif;
-  font-size: max(15px, 2vmin);
+  font-size: clamp(1rem, 3vw, 1.4rem);
 }
 footer div {
   display: flex;
@@ -760,7 +760,7 @@ footer div {
   justify-content: center;
 }
 .footer-contact {
-  padding: 10px;
+  padding: 0.75rem;
   min-width: 200px;
   cursor: pointer;
 }
@@ -792,10 +792,10 @@ footer a {
   align-items: center;
 }
 footer a {
-  padding: 10px;
+  padding: 0.75rem;
 }
 footer img {
-  height: max(max(2vw, 3vh), 30px);
+  height: clamp(30px, 5vw, 50px);
   transition: all 200ms ease-in;
 }
 footer img:hover {
@@ -810,8 +810,8 @@ footer .copy-message {
   width: 200px;
   background-color: #fdff8a;
   border-radius: 5px;
-  padding: 10px 5px;
-  font-size: 15px;
+  padding: 0.75rem 0.25rem;
+  font-size: 1rem;
   text-align: center;
 }
 footer .footer-contact:active {
