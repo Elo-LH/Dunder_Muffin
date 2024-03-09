@@ -3,32 +3,27 @@ html,
 body {
   margin: 0;
   padding: 0;
-  width: 100%;
-  height: 100%;
   display: flex;
   min-height: 100vh;
   flex-direction: column;
 }
 
+/* Scrollbar */
 body {
   scrollbar-width: 5px;
   scrollbar-color: #000 #969696;
 }
-
 * {
   scrollbar-width: thin;
   scrollbar-color: #0000009a #969696;
 }
-
 ::-webkit-scrollbar-track {
   background: #969696;
 }
-
 ::-webkit-scrollbar-thumb {
   background-color: #0000009a;
   border-radius: 5em;
 }
-
 ::-webkit-scrollbar {
   width: 5px;
   background: transparent;
@@ -43,12 +38,9 @@ h1 {
 
 header {
   width: 80%;
-  margin: 15px auto 20px auto;
+  margin: 0 auto;
   display: flex;
   align-items: baseline;
-}
-.logo-link {
-  display: flex;
 }
 header img {
   width: 160px;
@@ -71,8 +63,8 @@ ul {
 }
 nav ul li a {
   font-family: 'Rubik', sans-serif;
-  font-size: 32px;
-  margin: 5px 20px;
+  font-size: 2rem;
+  margin: 0.3rem 1.2rem;
   font-weight: bold;
   color: #000;
   text-decoration: none;
@@ -98,17 +90,14 @@ nav li:active {
 @media screen and (max-width: 900px) {
   header {
     align-items: center;
-    margin: 0px auto;
   }
   nav ul {
     flex-direction: column;
+    padding-left: 1rem;
   }
   nav ul li a {
     flex-direction: column;
-    font-size: 24px;
-  }
-  .logo-link {
-    width: 110px;
+    font-size: 1.5rem;
   }
 }
 
@@ -136,7 +125,6 @@ nav li:active {
     font-size: 34px;
   }
 }
-
 .home a {
   padding: 5px;
   margin-bottom: 15px;
@@ -145,14 +133,13 @@ nav li:active {
   background-color: #fdff8a;
   width: fit-content;
   border-radius: 80% 20% 72% 28% / 20% 63% 37% 80%;
-  transition: background-color 400ms ease-in,
-              font-weight 300ms ease-in-out;
+  transition: background-color 400ms ease-in, font-weight 300ms ease-in-out;
 }
-.home a:hover{
+.home a:hover {
   background-color: #fcff51;
   font-weight: 600;
 }
-.home a:active{
+.home a:active {
   background: #fdff8a;
 }
 .home img {
@@ -447,11 +434,11 @@ option {
   }
 }
 
-.order-options img:nth-last-child(-n+2){
+.order-options img:nth-last-child(-n + 2) {
   cursor: pointer;
 }
 
-.order-options img:nth-last-child(-n+2):active{
+.order-options img:nth-last-child(-n + 2):active {
   transform: scale(1.1);
 }
 
