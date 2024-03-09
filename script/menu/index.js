@@ -112,10 +112,11 @@ function generateCards(recipes, filter) {
   }
   //Generate cards
   for (let recipe of filteredRecipes) {
-    const recipeCard = document.createElement('div')
+    const recipeCard = document.createElement('article')
     recipeCard.setAttribute('class', 'recipe-card')
     recipeCard.setAttribute('id', `id-${recipe.id}`)
     const recipePicture = document.createElement('img')
+    recipePicture.alt = ''
     //If no link to recipe picture, affect default
     recipe.picture == ''
       ? (recipePicture.src = './images/default-recipe-picture.jpg')
@@ -141,10 +142,11 @@ function generateCards(recipes, filter) {
     recipePrice.innerText = `$${recipe.price}`
 
     //Order buttons
-    const orderOptions = document.createElement('div')
+    const orderOptions = document.createElement('section')
     orderOptions.setAttribute('class', 'order-options')
     const orderBasketImg = document.createElement('img')
     orderBasketImg.src = './assets/basket-icon.svg'
+    orderBasketImg.alt = 'your basket'
     const orderNumber = document.createElement('p')
     let order = orders.find((order) => order.id == recipe.id)
     if (!order) {
@@ -167,7 +169,7 @@ function generateCards(recipes, filter) {
     addLogo.addEventListener('click', (event) => updateNumber(event))
 
     //Set wrappers
-    const cardInfos = document.createElement('div')
+    const cardInfos = document.createElement('section')
     cardInfos.setAttribute('class', 'card-infos')
     const cardBottom = document.createElement('div')
     cardBottom.setAttribute('class', 'card-bottom')
