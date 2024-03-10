@@ -98,10 +98,10 @@ function generateBasket(orders) {
   for (let order of orders) {
     console.log(order)
     //set postit
-    const orderCard = document.createElement('div')
+    const orderCard = document.createElement('article')
     orderCard.setAttribute('class', 'order-card')
     //set recipe infos div
-    const recipeInfos = document.createElement('div')
+    const recipeInfos = document.createElement('section')
     recipeInfos.setAttribute('class', 'recipe-infos')
     //set recipe picture
     const recipePicture = document.createElement('img')
@@ -117,13 +117,14 @@ function generateBasket(orders) {
     // orderCardTitlePrice.setAttribute('class', 'order-card__recipe-title-price')
 
     //set mini postit div order infos
-    const orderOptions = document.createElement('div')
+    const orderOptions = document.createElement('section')
     orderOptions.setAttribute('class', 'mini-postit')
     const basketWrapper = document.createElement('div')
     basketWrapper.setAttribute('class', 'basket-wrapper')
     //Order buttons
     const orderBasketImg = document.createElement('img')
     orderBasketImg.src = './assets/basket-icon.svg'
+    orderBasketImg.alt = 'Your basket'
     const orderNumber = document.createElement('p')
     if (!order) {
       orderNumber.innerText = '0'

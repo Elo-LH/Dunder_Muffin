@@ -35,24 +35,27 @@
         </ul>
       </nav>
     </header>
-    <section class="home">
+    <div class="home">
       <h1>Looking at pictures of food on your computer?</h1>
       <p class="home-subtitle">
         Don't give up on your lunch dream and
         <a href="./menu.html">order your favorites !</a>
       </p>
-      <div class="recipe-of-the-week">
+      <article class="recipe-of-the-week">
         <h2>Recipe of the week</h2>
         <div class="content-wrapper">
           <div class="recipe-text">
             <h3>Alfredo's fettucine</h3>
             <p>What's better before running a marathon ? You tell me !</p>
-            <a href="/recipe.html?id=9">See details -></a>
+            <a class="recipe-link" href="/recipe.html?id=9">See details -></a>
           </div>
-          <img src="./images/carbo-load.jpg" />
+          <img
+            alt="Michael eating Alfredo's fettucine before a 5km run"
+            src="./images/carbo-load.jpg"
+          />
         </div>
-      </div>
-      <div class="new-recipe">
+      </article>
+      <article class="new-recipe">
         <h2>New recipe</h2>
         <div class="content-wrapper">
           <div class="recipe-text">
@@ -62,13 +65,20 @@
               Freshly made ice cream Michael's style, what's better after a day
               of hard work ?
             </p>
-            <a href="/recipe.html?id=10">See details -></a>
+            <a class="recipe-link" href="/recipe.html?id=10">See details -></a>
           </div>
-          <img src="./images/ice-cream.jpg" />
+          <img
+            alt="Michael saying to Jim : It's never too late for ice cream"
+            src="./images/ice-cream.jpg"
+          />
         </div>
-        <img id="mayonnaise" src="./images/mayonnaise.jpg" />
-      </div>
-    </section>
+        <img
+          alt="Michael eating his ice cream saying he made it with mayonnaise and black olives"
+          id="mayonnaise"
+          src="./images/mayonnaise.jpg"
+        />
+      </article>
+    </div>
     <footer>
       <div class="footer-contact">
         <p>Dunder Muffin</p>

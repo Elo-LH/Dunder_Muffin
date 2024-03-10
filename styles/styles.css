@@ -148,6 +148,10 @@ nav li:active {
   border-radius: 80% 20% 72% 28% / 20% 63% 37% 80%;
   transition: background-color 400ms ease-in, font-weight 300ms ease-in-out;
 }
+.recipe-link {
+  margin-top: 1.2rem;
+  display: inline-block;
+}
 .home a:hover {
   background-color: #fcff51;
   font-weight: 600;
